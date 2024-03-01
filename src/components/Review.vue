@@ -1,9 +1,9 @@
 <template>
   {{ this.fillDetails }}
-  <Header />
-  <br />
+  <!-- <Header /> -->
+  <!-- <br /> -->
 
-  <div class="breadcrumbs-path">
+  <!-- <div class="breadcrumbs-path">
     <router-link to="/">Home </router-link>
     <div v-for="(path, index) in fullPaths">
       <span v-if="index === fullPaths.length - 1"> / {{ path }}</span>
@@ -12,10 +12,10 @@
       >
     </div>
   </div>
-  <br /><br />
+  <br /><br /> -->
   <div class="container">
-    <h1>Hello {{ username }}, Review a restaurant</h1>
-    <br /><br />
+    <!-- <h1>Hello {{ username }}, Review a restaurant</h1>
+    <br /><br /> -->
     <ul>
       <li v-for="item in reviews" :key="item.name">
         <div class="info">
@@ -205,21 +205,25 @@ export default {
 <style scoped>
 .container {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
+  /* background-color: red; */
 }
 
 ul {
   width: 100%;
+  height: min-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   list-style: none;
-  margin-bottom: 10px;
+  /* background-color: green; */
+  /* margin-bottom: 10px; */
 }
 ul li {
   border: 2px solid rgb(162, 162, 162);
@@ -228,7 +232,7 @@ ul li {
   width: 30%;
   padding: 10px;
   gap: 20px;
-  height: 80px;
+  height: 10rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -259,7 +263,11 @@ ul li img {
 ul li h4 {
   display: flex;
 }
-.breadcrumbs-path {
+.comments {
+  display: flex;
+  flex-direction: column;
+}
+/* .breadcrumbs-path {
   width: 80%;
   display: flex;
   justify-content: start;
@@ -268,14 +276,14 @@ ul li h4 {
   background-color: rgb(235, 235, 235);
   padding: 10px;
   border-bottom: 1px solid black;
-}
-.breadcrumbs-path a {
+} */
+/* .breadcrumbs-path a {
   text-decoration: none;
   color: #333;
   background-color: rgb(235, 235, 235);
-}
-.breadcrumbs-path span {
+} */
+/* .breadcrumbs-path span {
   color: #999;
   background-color: rgb(235, 235, 235);
-}
+} */
 </style>

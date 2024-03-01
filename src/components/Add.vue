@@ -1,7 +1,7 @@
 <template>
-  <Header />
-  <br />
-  <div class="breadcrumbs-path">
+  <!-- <Header /> -->
+  <!-- <br /> -->
+  <!-- <div class="breadcrumbs-path">
     <router-link to="/">Home </router-link>
     <div v-for="(path, index) in fullPaths">
       <span v-if="index === fullPaths.length - 1"> / {{ path }}</span>
@@ -9,38 +9,56 @@
         >/<router-link to="path">{{ path }} </router-link></span
       >
     </div>
-  </div>
-  <br /><br />
+  </div> -->
+  <!-- <br /><br /> -->
 
-  <h1>Hello {{ username }}, Add a new restaurant</h1>
-  <br /><br />
+  <!-- <h1>Hello {{ username }}, Add a new restaurant</h1> -->
+  <!-- <br /><br /> -->
 
-  <form class="add">
+  <form
+    class="add d-flex flex-column justify-content-center align-items-center"
+    style="gap: 50px"
+  >
     <input
+      style="width: 300px; height: 40px"
+      class="px-3"
       type="text"
       placeholder="Enter Restaurant Name"
       v-model="restaurant.name"
       name="name"
     />
     <input
+      style="width: 300px; height: 40px"
+      class="px-3"
       type="text"
       placeholder="Enter Restaurant Address"
       v-model="restaurant.address"
       name="address"
     />
     <input
+      style="width: 300px; height: 40px"
+      class="px-3"
       type="text"
       placeholder="Enter Contact Number"
       v-model="restaurant.contact"
       name="contact"
     />
     <input
+      style="width: 300px; height: 40px"
+      class="px-3"
       type="text"
       placeholder="Image Link (if no link, default will be added)"
       v-model="restaurant.cloudinaryImageId"
       name="image"
     />
-    <button type="button" v-on:click="addRestaurantNew">Add Restaurant</button>
+    <button
+      style="width: 320px; height: 40px"
+      class="px-3"
+      type="button"
+      v-on:click="addRestaurantNew"
+    >
+      Add Restaurant
+    </button>
   </form>
 </template>
 <script>

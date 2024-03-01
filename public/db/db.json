@@ -76,7 +76,7 @@
       "contact": "23451",
       "address": "Sector 48",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ecd32b841549ce6bfd993260a2086c1f",
-      "avgRating": "4.4",
+      "avgRating": "5",
       "reviews": [
         {
           "id": "4876",
@@ -735,6 +735,15 @@
       "avgRating": "4",
       "reviews": [],
       "id": "45e5"
+    },
+    {
+      "id": "77b3",
+      "name": "By the Highway",
+      "contact": "9622206110",
+      "address": "Howrah Bridge",
+      "cloudinaryImageId": "/src/assets/placeholder-restaurant.png",
+      "avgRating": "4",
+      "reviews": []
     }
   ]
 }

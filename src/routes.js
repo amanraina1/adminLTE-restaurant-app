@@ -23,21 +23,21 @@ const routes = [
     component: Login,
     path: "/login",
   },
-  // {
-  //   name: "Update",
-  //   component: Update,
-  //   path: "/update/:id",
-  // },
-  // {
-  //   name: "Add",
-  //   component: Add,
-  //   path: "/add",
-  // },
-  // {
-  //   name: "Review",
-  //   component: Review,
-  //   path: "/review/:id",
-  // },
+  {
+    name: "Update",
+    component: Update,
+    path: "/update/:id",
+  },
+  {
+    name: "Add",
+    component: Add,
+    path: "/add",
+  },
+  {
+    name: "Review",
+    component: Review,
+    path: "/review/:id",
+  },
 ];
 
 const router = createRouter({
