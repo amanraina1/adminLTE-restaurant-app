@@ -1,0 +1,740 @@
+{
+  "users": [
+    {
+      "id": "c0a3",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin",
+      "isAdmin": true
+    },
+    {
+      "id": "4876",
+      "name": "Peter",
+      "email": "peter@mail.com",
+      "password": "peter",
+      "isAdmin": false
+    },
+    {
+      "id": "2338",
+      "name": "testing",
+      "email": "test@testing.com",
+      "password": "122334",
+      "isAdmin": false
+    },
+    {
+      "id": "bbde",
+      "name": "aman raina",
+      "email": "amanraina@test.com",
+      "password": "me@maanraina",
+      "isAdmin": false
+    },
+    {
+      "id": "4ca6",
+      "name": "Naruto",
+      "email": "naruto@mail.com",
+      "password": "naruto",
+      "isAdmin": false
+    },
+    {
+      "id": "e12c",
+      "name": "Aman Raina",
+      "email": "aman@test.com",
+      "password": "122334"
+    },
+    {
+      "id": "43f3",
+      "name": "User",
+      "email": "user@example.com",
+      "password": "user"
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "Subway",
+      "contact": "456789",
+      "address": "Sidhra Road Byepass",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/63178e3e64d503a479f2a2048a474552",
+      "avgRating": "4.5",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        }
+      ],
+      "id": "3939"
+    },
+    {
+      "name": "McDonald's",
+      "contact": "23451",
+      "address": "Sector 48",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ecd32b841549ce6bfd993260a2086c1f",
+      "avgRating": "4.4",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        },
+        {
+          "id": "43f3",
+          "name": "User",
+          "message": "Exceptional food and ambience",
+          "rating": "5"
+        }
+      ],
+      "id": "411518"
+    },
+    {
+      "id": "145541",
+      "name": "Starbucks Coffee",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2418209798927d733a50f5d2ebcc2aee",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "32nd Avenue",
+      "contact": "45678",
+      "avgRating": "4.3"
+    },
+    {
+      "id": "27891",
+      "name": "Bakingo",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/fa68ac0434f668bba1322abda36570b3",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Old DLF Colony",
+      "contact": "343534",
+      "avgRating": "4.4"
+    },
+    {
+      "id": "20138",
+      "name": "Harish Bakery",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/jkuj5aui7wwmwc0eidog",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Huda Shopping Center",
+      "contact": "097654",
+      "avgRating": "4.2"
+    },
+    {
+      "id": "228351",
+      "name": "House of Chow",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/6e97ac8f5c89213610309ef1940afa05",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Jharsa",
+      "contact": "1234567",
+      "avgRating": "4.2"
+    },
+    {
+      "id": "89556",
+      "name": "Urban Tandoor",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/amhewecesj0lshepdytl",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Huda Market",
+      "contact": "586767347",
+      "avgRating": "4.1"
+    },
+    {
+      "id": "42958",
+      "name": "Faasos",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/af33b81798b11deba338e94b7585d348",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Huda Complex",
+      "contact": "1235",
+      "avgRating": "4.3"
+    },
+    {
+      "name": "Wow! Momo",
+      "contact": "586767347",
+      "address": "Huda Market",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/5a148e63e9c54942e37627da1aa156be",
+      "avgRating": "4.1",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "id": "21742"
+    },
+    {
+      "id": "76060",
+      "name": "Nirula's",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/a66fa8f5befa65947d9e20f29a863ce0",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Sector 14",
+      "contact": "465677",
+      "avgRating": "4.3"
+    },
+    {
+      "name": "Grameen Kulfi",
+      "contact": "465677",
+      "address": "Acharyapuri Mode",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/nrqjhlsss9iadlaaqrqm",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "avgRating": "5",
+      "id": "355339"
+    },
+    {
+      "id": "68318",
+      "name": "Chaayos Chai+Snacks",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/cace805a6ba74137571d0f7ac92302b1",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "DLF Colony",
+      "contact": "465677",
+      "avgRating": "4.4"
+    },
+    {
+      "id": "384166",
+      "name": "Kwality Walls",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/nqq8t62fvm09mmjvskjz",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Kadipur Road",
+      "contact": "56422783",
+      "avgRating": "4.7"
+    },
+    {
+      "id": "332226",
+      "name": "Tossin Pizza",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/313485a665bd0f4958fdc14ead8afade",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Sector 50",
+      "contact": "4789834",
+      "avgRating": "4.5"
+    },
+    {
+      "id": "788097",
+      "name": "Kebabs & Curries",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d5b1de25620e4681c122e33061bd4f75",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "sohna road",
+      "contact": "7894334",
+      "avgRating": "3.9"
+    },
+    {
+      "id": "259714",
+      "name": "NIC Ice Creams",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/85825a6d74b1059a63a9b688de9f67ce",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Mata Road",
+      "contact": "465677",
+      "avgRating": "4.6"
+    },
+    {
+      "name": "Subway",
+      "contact": "456789",
+      "address": "Sidhra Road Byepass",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/63178e3e64d503a479f2a2048a474552",
+      "avgRating": "4.5",
+      "id": "3939",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "id": "53056",
+      "name": "Giani",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/b9f3278aa437785772e368cfe584b342",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Huda Market",
+      "contact": "243098",
+      "avgRating": "4.3"
+    },
+    {
+      "id": "417319",
+      "name": "NOTO",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/81ac87e5c89c16adc867be38ce5a1ba3",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Jmd Galleria",
+      "contact": "243098",
+      "avgRating": "4.6"
+    },
+    {
+      "name": "Briskins",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/fa68ac0434f668bba1322abda36570b3",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "contact": "96222",
+      "address": "Ghelai Nagar",
+      "id": "c987d",
+      "avgRating": "4.5"
+    },
+    {
+      "id": "455958",
+      "name": "Faalos",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/af33b81798b11deba338e94b7585d348",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Higher Complex",
+      "contact": "109876535",
+      "avgRating": "4.3"
+    },
+    {
+      "id": "42936",
+      "name": "Sweet Truth",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/78408969d316991befba0a6eca303e1c",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Huda Complex",
+      "contact": "098438778",
+      "avgRating": "4.1"
+    },
+    {
+      "id": "417819",
+      "name": "NOTO",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/81ac87e5c89c16adc867be38ce5a1ba3",
+      "reviews": [
+        {
+          "id": "4876",
+          "name": "Peter",
+          "message": "Nice restaurant",
+          "rating": "5"
+        },
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "4"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "4"
+        }
+      ],
+      "address": "Jmd Galleria",
+      "contact": "243098",
+      "avgRating": "4.6"
+    },
+    {
+      "name": "Bakingo",
+      "contact": "96222",
+      "address": "Shastri Nagar",
+      "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/fa68ac0434f668bba1322abda36570b3",
+      "avgRating": "4.5",
+      "reviews": [
+        {
+          "id": "4ca6",
+          "name": "Naruto",
+          "message": "Good Ambiemce",
+          "rating": "3"
+        },
+        {
+          "id": "e12c",
+          "name": "Aman Raina",
+          "message": "Careful and good staff",
+          "rating": "5"
+        },
+        {
+          "id": "2338",
+          "name": "testing",
+          "message": "Highly recommended",
+          "rating": "5"
+        },
+        {
+          "id": "43f3",
+          "name": "User",
+          "message": "Exceptional food and ambience",
+          "rating": "4"
+        }
+      ],
+      "id": "c97d"
+    },
+    {
+      "name": "Aroma Restaurant",
+      "contact": "98765432",
+      "address": "Near Byepass raod",
+      "cloudinaryImageId": "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=3264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "avgRating": "4",
+      "reviews": [],
+      "id": "45e5"
+    }
+  ]
+}
