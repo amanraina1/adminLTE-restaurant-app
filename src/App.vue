@@ -36,6 +36,7 @@ import ContentSidebar from "./dashboard/ContentSidebar.vue";
 
 export default {
   name: "App",
+
   components: {
     // FilterTodos,
     Preloader,
@@ -55,9 +56,6 @@ export default {
         theme: "bootstrap4",
       });
     },
-  },
-  mounted() {
-    // this.initializeSelect2();
   },
 };
 </script>

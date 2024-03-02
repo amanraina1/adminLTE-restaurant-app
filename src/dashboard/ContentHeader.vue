@@ -4,13 +4,15 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Dashboard</h1>
+          <h1 class="m-0">Hi {{ username }}</h1>
         </div>
         <!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard v1</li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">
+              <a href="/add">Add restaurant</a>
+            </li>
           </ol>
         </div>
         <!-- /.col -->
@@ -23,7 +25,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      username: "",
+    };
+  },
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (user) {
+      this.username = JSON.parse(user).name;
+    }
+  },
+};
 </script>
 
 <style></style>

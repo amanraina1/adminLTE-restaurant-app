@@ -33,6 +33,17 @@
         Go To Sign Up Page
       </button>
     </router-link>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4>For Admin Login</h4>
+    <span>Email - admin@example.com | PW - admin</span>
+    <br />
+    <br />
+    <h4>For User Login</h4>
+    <span>Email - user@example.com | PW - user</span>
   </form>
 
   <!-- 
@@ -42,14 +53,7 @@
       <router-link to="/signup">
         <button>Go To Sign Up Page</button>
       </router-link>
-    </p>
-  
-  <h4>For Admin Login</h4>
-  <span>Email - admin@example.com | PW - admin</span>
-  <br />
-  <br />
-  <h4>For User Login</h4>
-  <span>Email - user@example.com | PW - user</span>  -->
+    </p> -->
 </template>
 <script>
 import axios from "axios";
@@ -72,13 +76,13 @@ export default {
   methods: {
     async login(e) {
       e.preventDefault();
-      console.log(this.email);
       let result = await axios.get(
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );
 
       if (result.status === 200 && result.data.length > 0) {
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
+        location.reload();
         this.$router.push({ name: "Home" });
       } else {
         alert("Not Valid Credentials");

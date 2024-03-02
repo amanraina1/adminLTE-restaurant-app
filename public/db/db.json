@@ -46,6 +46,20 @@
       "name": "User",
       "email": "user@example.com",
       "password": "user"
+    },
+    {
+      "id": "bc8c",
+      "name": "Aman Raina",
+      "email": "aman@example.com",
+      "password": "123456",
+      "isAdmin": false
+    },
+    {
+      "id": "6389",
+      "name": "Aman Raina",
+      "email": "aman@example.com",
+      "password": "123456",
+      "isAdmin": false
     }
   ],
   "restaurants": [
@@ -95,12 +109,6 @@
           "name": "Aman Raina",
           "message": "Careful and good staff",
           "rating": "4"
-        },
-        {
-          "id": "43f3",
-          "name": "User",
-          "message": "Exceptional food and ambience",
-          "rating": "5"
         }
       ],
       "id": "411518"
@@ -735,15 +743,6 @@
       "avgRating": "4",
       "reviews": [],
       "id": "45e5"
-    },
-    {
-      "id": "77b3",
-      "name": "By the Highway",
-      "contact": "9622206110",
-      "address": "Howrah Bridge",
-      "cloudinaryImageId": "/src/assets/placeholder-restaurant.png",
-      "avgRating": "4",
-      "reviews": []
     }
   ]
 }

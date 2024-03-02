@@ -9,10 +9,13 @@
         </a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="/add" class="nav-link">Add Restaurant</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a @click="logout" class="nav-link">Logout</a>
       </li>
     </ul>
 
@@ -31,15 +34,17 @@
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                v-model="restaurantName"
               />
               <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
+                <button class="btn btn-navbar" type="button">
+                  <i v-on:click="search()" class="fas fa-search"></i>
                 </button>
                 <button
                   class="btn btn-navbar"
                   type="button"
                   data-widget="navbar-search"
+                  v-on:click="cancel"
                 >
                   <i class="fas fa-times"></i>
                 </button>
@@ -184,6 +189,28 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      restaurantName: "",
+    };
+  },
+  methods: {
+    search() {
+      // console.log(this.restaurantName);
+      let restaurantList = this.$store.getters.allRestaurants.filter((item) =>
+        item.name.includes(this.restaurantName)
+      );
+      this.$store.state.restaurants = restaurantList;
+    },
+    cancel() {
+      location.reload();
+    },
+    logout() {
+      localStorage.clear();
+      location.reload();
+      this.$router.push({ name: "Signup" });
+    },
+  },
 };
 </script>
 

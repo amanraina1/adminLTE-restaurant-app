@@ -209,8 +209,8 @@ export default {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
   overflow-y: scroll;
   /* background-color: red; */
 }
@@ -266,6 +266,7 @@ ul li h4 {
 .comments {
   display: flex;
   flex-direction: column;
+  width: 30%;
 }
 /* .breadcrumbs-path {
   width: 80%;
