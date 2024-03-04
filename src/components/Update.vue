@@ -14,7 +14,7 @@
   <!-- <br /><br /> -->
   <!-- <h1>Hello {{ username }}, Update a restaurant</h1> -->
   <!-- <br /><br /> -->
-  <form
+  <!-- <form
     class="add d-flex flex-column justify-content-center align-items-center"
     style="gap: 50px"
   >
@@ -66,7 +66,81 @@
     >
       Update Restaurant
     </button>
-  </form>
+  </form> -->
+
+  <!-- AdminLTE Theme Start -->
+  <div class="container-sm d-flex justify-content-center align-items-center">
+    <div class="card w-50 card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Update Restaurant</h3>
+      </div>
+
+      <form>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Enter Restaurant name</label>
+            <input
+              type="text"
+              v-model="restaurant.name"
+              class="form-control"
+              id="exampleInputEmail1"
+              placeholder="Enter Restaurant name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Enter Restaurant address</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="restaurant.address"
+              id="exampleInputPassword1"
+              placeholder="Enter Restaurant address"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Enter Contact Number</label>
+            <input
+              type="number"
+              class="form-control"
+              v-model="restaurant.contact"
+              id="exampleInputPassword1"
+              placeholder="Enter Contact Number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Average Ratings</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="restaurant.avgRating"
+              id="exampleInputPassword1"
+              placeholder="Enter Contact Number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Image Link</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="restaurant.cloudinaryImageId"
+              id="exampleInputPassword1"
+              placeholder="Enter Image Link"
+            />
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            v-on:click="updateRestaurant"
+          >
+            Update Restaurant
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 <script>
 import Header from "./Header.vue";
@@ -107,6 +181,7 @@ export default {
         avgRating: this.restaurant.avgRating,
         reviews: this.reviews,
       });
+      this.$router.push({ name: "Home" });
       // if (result.status === 200) {
       //   this.$router.push({ name: "Home" });
       // }

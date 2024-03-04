@@ -1,30 +1,34 @@
 <template>
-  <div class="image-container">
-    <img :src="cloudinaryImageId" alt="restaurant image" />
-    <div class="details">
-      <h3 class="name text-center">{{ name }}</h3>
-      <span class="ratings text-center"
-        >⭐️{{ avgRating }} • {{ contact }}</span
-      >
-      <span class="address text-center">{{ address }}</span>
-      <div class="icon">
-        <router-link :to="'/update/' + id" v-if="isAdmin">
-          <i title="Update" class="fa fa-edit"></i>
-        </router-link>
-        <router-link :to="'/review/' + id">
-          <button title="See Reviews">See Reviews</button>
-        </router-link>
-        <i
-          title="Delete"
-          v-if="isAdmin"
-          v-on:click="removeRestaurants(id)"
-          class="fa fa-trash"
-        ></i>
+  <div class="card">
+    <div class="image-container">
+      <img :src="cloudinaryImageId" alt="restaurant image" />
+      <div class="details">
+        <h3 class="name text-center">{{ name }}</h3>
+        <span class="ratings text-center"
+          >⭐️{{ avgRating }} • {{ contact }}</span
+        >
+        <span class="address text-center">{{ address }}</span>
+        <div class="icon">
+          <router-link :to="'/update/' + id" v-if="isAdmin">
+            <button><i title="Update" class="fa fa-edit"></i></button>
+          </router-link>
+          <router-link :to="'/review/' + id">
+            <button title="See Reviews">See Reviews</button>
+          </router-link>
+          <button>
+            <i
+              title="Delete"
+              v-on:click="remove(id)"
+              v-if="isAdmin"
+              class="fa fa-trash"
+            ></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
+<!-- v-on:click="removeRestaurants(id)" -->
 <script>
 import { mapActions } from "vuex";
 export default {
@@ -43,8 +47,12 @@ export default {
     id: String,
   },
   methods: {
-    ...mapActions(["removeRestaurants"]),
+    ...mapActions(["removeRestaurants", "fetchRestaurants"]),
+    remove(id) {
+      this.$emit("removedata", id);
+    },
   },
+
   mounted() {
     const user = localStorage.getItem("user-info");
     this.isAdmin = JSON.parse(user).isAdmin;
@@ -53,6 +61,21 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  scale: 0.9;
+  transition: all 0.05s ease;
+  border-bottom: 1px solid black;
+  background-color: #f6f6f6;
+}
 .details .icon img {
   width: 30px;
   height: 30px;
@@ -62,20 +85,20 @@ export default {
   width: 273px;
   height: 340px;
   /* margin-right: 50px; */
-  margin-left: 50px;
+  /* margin-left: 50px; */
   /* margin-top: 20px; */
   margin-bottom: 20px;
   /* border: 1px solid black; */
   border-radius: 20px;
   overflow: hidden;
 }
-.image-container:hover {
+/* .image-container:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   scale: 0.9;
   transition: all 0.05s ease;
   border-bottom: 1px solid black;
   background-color: #f6f6f6;
-}
+} */
 .image-container img {
   width: 100%;
   /* height: 182px; */

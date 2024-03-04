@@ -24,7 +24,7 @@
           />
         </div>
         <div class="info">
-          <a v-if="toShow" href="#" class="d-block">{{ username }}</a>
+          <a href="#" class="d-block">{{ username }}</a>
         </div>
       </div>
 
@@ -41,14 +41,12 @@ export default {
   data() {
     return {
       username: "",
-      toShow: false,
     };
   },
   mounted() {
     const user = localStorage.getItem("user-info");
     if (user) {
       this.username = JSON.parse(user).name;
-      this.toShow = true;
     } else {
       this.$router.push({ name: "Login" });
       return;

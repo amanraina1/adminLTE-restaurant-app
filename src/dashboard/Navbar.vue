@@ -1,6 +1,9 @@
 <template>
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav
+    v-if="toShow"
+    class="main-header navbar navbar-expand navbar-white navbar-light"
+  >
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -9,12 +12,14 @@
         </a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
+        <router-link class="nav-link" to="/">Home</router-link>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/add" class="nav-link">Add Restaurant</a>
+        <router-link class="nav-link" to="/add">Add Restaurant</router-link>
+        <!-- <a href="/add" class="nav-link"></a> -->
       </li>
       <li class="nav-item d-none d-sm-inline-block">
+        <!-- <router-link class="nav-link" to="/add"></router-link> -->
         <a @click="logout" class="nav-link">Logout</a>
       </li>
     </ul>
@@ -55,6 +60,7 @@
       </li>
 
       <!-- Messages Dropdown Menu -->
+      <!--
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -62,13 +68,14 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            Message Start
             <div class="media">
               <img
                 src="../assets/img/user1-128x128.jpg"
                 alt="User Avatar"
                 class="img-size-50 mr-3 img-circle"
               />
+              
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -82,11 +89,11 @@
                 </p>
               </div>
             </div>
-            <!-- Message End -->
+            Message End
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            Message Start
             <div class="media">
               <img
                 src="../assets/img/user8-128x128.jpg"
@@ -106,11 +113,11 @@
                 </p>
               </div>
             </div>
-            <!-- Message End -->
+            Message End
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            Message Start
             <div class="media">
               <img
                 src="../assets/img/user3-128x128.jpg"
@@ -130,13 +137,13 @@
                 </p>
               </div>
             </div>
-            <!-- Message End -->
+            Message End
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Notifications Dropdown Menu -->
+      Notifications Dropdown Menu
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -166,11 +173,6 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
         <a
           class="nav-link"
           data-widget="control-sidebar"
@@ -180,6 +182,11 @@
         >
           <i class="fas fa-th-large"></i>
         </a>
+      </li>  -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
       </li>
     </ul>
   </nav>
@@ -187,14 +194,17 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "Navbar",
   data() {
     return {
       restaurantName: "",
+      toShow: false,
     };
   },
   methods: {
+    ...mapActions(["fetchRestaurants"]),
     search() {
       // console.log(this.restaurantName);
       let restaurantList = this.$store.getters.allRestaurants.filter((item) =>
@@ -203,13 +213,21 @@ export default {
       this.$store.state.restaurants = restaurantList;
     },
     cancel() {
-      location.reload();
+      this.fetchRestaurants();
+
+      // location.reload();
     },
     logout() {
       localStorage.clear();
       location.reload();
       this.$router.push({ name: "Signup" });
     },
+  },
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (user) {
+      this.toShow = true;
+    }
   },
 };
 </script>

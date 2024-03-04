@@ -20,6 +20,7 @@
         :contact="item.contact"
         :cloudinaryImageId="item.cloudinaryImageId"
         :id="item.id"
+        @removedata="remove($event)"
       />
     </li>
   </ul>
@@ -65,12 +66,17 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchRestaurants"]),
+    ...mapActions(["fetchRestaurants", "removeRestaurants"]),
     searchRestaurant() {
       const list = this.$store.getters.allRestaurants.filter((item) =>
         item.name?.includes(this.search)
       );
       this.$store.state.restaurants = list;
+    },
+    remove(id) {
+      // console.log(id);
+      this.removeRestaurants(id);
+      this.loadData();
     },
 
     loadData() {

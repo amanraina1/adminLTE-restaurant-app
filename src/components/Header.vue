@@ -1,14 +1,14 @@
 <template>
-  <div class="nav">
+  <!-- <div class="nav">
     <router-link title="Home" to="/">Home</router-link>
     <router-link title="Add Restaurant" v-if="isAdmin" to="/add"
       >Add Restaurant</router-link
     >
     <a title="Logout" v-on:click="logout">Logout</a>
-  </div>
+  </div> -->
 </template>
 
-<script>
+<!-- <script>
 export default {
   name: "Header",
   data() {
@@ -60,4 +60,4 @@ export default {
   color: skyblue;
   transition: all 0.5s ease-in-out;
 }
-</style>
+</style> -->

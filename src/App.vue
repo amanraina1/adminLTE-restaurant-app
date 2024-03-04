@@ -23,8 +23,8 @@
 
 <script>
 // import $ from "jquery";
-// import "../node_modules/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css";
-// import "../node_modules/admin-lte/plugins/select2/css/select2.min.css";
+import "../node_modules/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css";
+import "../node_modules/admin-lte/plugins/select2/css/select2.min.css";
 
 import Preloader from "./dashboard/Preloader.vue";
 import ContentHeader from "./dashboard/ContentHeader.vue";

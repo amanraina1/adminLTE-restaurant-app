@@ -42,7 +42,7 @@
         />
       </li>
     </ul>
-    <div class="comments">
+    <!-- <div class="comments">
       <input
         type="text"
         v-model="message"
@@ -61,6 +61,45 @@
       <br />
       <br />
       <button @click="print">Submit</button>
+    </div> -->
+    <!-- AdminLTE Theme Start -->
+    <div class="container-sm d-flex justify-content-center align-items-center">
+      <div class="card w-50 card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Add Review</h3>
+        </div>
+
+        <form>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Write a Review</label>
+              <input
+                type="text"
+                v-model="message"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Write a Review"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Give Rating</label>
+              <select name="rating" id="rating" class="m-4" v-model="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button @click="print" type="button" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -142,7 +181,7 @@ export default {
       }
 
       // Updating the database
-      let result = this.updatedRestaurant({
+      this.updatedRestaurant({
         id: this.id,
         name: this.restaurant.name,
         contact: this.restaurant.contact,
@@ -151,10 +190,6 @@ export default {
         avgRating: this.restaurant.avgRating,
         reviews: this.reviews,
       });
-
-      if (result.status === 200) {
-        location.reload();
-      }
     },
   },
   computed: {

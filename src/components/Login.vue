@@ -1,9 +1,9 @@
 <template>
-  <form
+  <!-- <form
     @submit="login"
-    class="d-flex flex-column align-items-center justify-content-center"
-  >
-    <div class="form-group">
+    class="d-flex flex-column align-items-center justify-content-center py-5"
+  > -->
+  <!-- <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input
         type="email"
@@ -23,8 +23,8 @@
         placeholder="Password"
         v-model="password"
       />
-    </div>
-
+    </div> -->
+  <!-- 
     <button type="submit" v-on:click="login" class="btn btn-primary m-3">
       Login
     </button>
@@ -33,27 +33,85 @@
         Go To Sign Up Page
       </button>
     </router-link>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <h4>For Admin Login</h4>
-    <span>Email - admin@example.com | PW - admin</span>
-    <br />
-    <br />
-    <h4>For User Login</h4>
-    <span>Email - user@example.com | PW - user</span>
-  </form>
+  </form> -->
 
-  <!-- 
-    
-    
-    <p>
-      <router-link to="/signup">
-        <button>Go To Sign Up Page</button>
-      </router-link>
-    </p> -->
+  <!-- AdminLTE Theme Start -->
+
+  <body class="login-page" style="min-height: 496.797px">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="#"><b>Admin</b>LTE</a>
+      </div>
+
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Sign in to start your session</p>
+          <form action="../../index3.html" method="post">
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                v-model="email"
+                class="form-control"
+                placeholder="Email"
+              />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                v-model="password"
+              />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" id="remember" />
+                  <label for="remember"> Remember Me </label>
+                </div>
+              </div> -->
+
+              <div class="col-12 text-center mb-4 mt-4">
+                <button
+                  type="submit"
+                  v-on:click="login"
+                  class="btn btn-primary btn-block"
+                >
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- <div class="social-auth-links text-center mb-3">
+            <p>- OR -</p>
+            <a href="#" class="btn btn-block btn-primary">
+              <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-danger">
+              <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+            </a>
+          </div> -->
+
+          <!-- <p class="mb-1">
+            <a href="#">I forgot my password</a>
+          </p> -->
+          <p class="mb-0">
+            <router-link to="/signup">Register a new membership</router-link>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
 </template>
 <script>
 import axios from "axios";

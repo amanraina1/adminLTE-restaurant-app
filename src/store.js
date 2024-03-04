@@ -13,9 +13,6 @@ const store = createStore({
       const result = state.restaurants.find((x) => x.id === id);
       return result;
     },
-    allUsers: (state) => {
-      return state.users;
-    },
   },
 
   actions: {
@@ -26,8 +23,8 @@ const store = createStore({
     },
     async removeRestaurants({ commit }, id) {
       await axios.delete(`http://localhost:3000/restaurants/${id}`);
-      location.reload();
-      commit("removeRestaurants", id);
+      // console.log("Commit :", this.state.restaurants);
+      commit("removeRestaurant", id);
     },
     async updatedRestaurant({ commit }, payload) {
       await axios.put(`http://localhost:3000/restaurants/${payload.id}`, {
@@ -58,8 +55,9 @@ const store = createStore({
     // {{ Restaurants APIs }}
     setRestaurants: (state, restaurants) => (state.restaurants = restaurants),
 
-    removeRestaurants: (state, id) => {
-      state.todos = state.todos.filter((todo) => todo.id !== id);
+    removeRestaurant: (state, id) => {
+      state.restaurants = state.restaurants.filter((todo) => todo.id !== id);
+      // console.log("Mutations :", state.restaurants);
     },
     updatedRestaurants: (state, payload) => {
       const restaurant = state.restaurants.find((x) => x.id === payload.id);
