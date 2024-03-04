@@ -70,7 +70,7 @@
 
   <!-- AdminLTE Theme Start -->
   <div class="container-sm d-flex justify-content-center align-items-center">
-    <div class="card w-50 card-primary">
+    <div class="card w-50 mt-5 card-primary">
       <div class="card-header">
         <h3 class="card-title">Update Restaurant</h3>
       </div>

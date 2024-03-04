@@ -1,69 +1,7 @@
 <template>
-  <!-- <Header /> -->
-  <!-- <br /> -->
-  <!-- <div class="breadcrumbs-path">
-    <router-link to="/">Home </router-link>
-    <div v-for="(path, index) in fullPaths">
-      <span v-if="index === fullPaths.length - 1"> / {{ path }}</span>
-      <span v-else
-        >/<router-link to="path">{{ path }} </router-link></span
-      >
-    </div>
-  </div> -->
-  <!-- <br /><br /> -->
-
-  <!-- <h1>Hello {{ username }}, Add a new restaurant</h1> -->
-  <!-- <br /><br /> -->
-
-  <!-- <form
-    class="add d-flex flex-column justify-content-center align-items-center"
-    style="gap: 50px"
-  >
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Restaurant Name"
-      v-model="restaurant.name"
-      name="name"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Restaurant Address"
-      v-model="restaurant.address"
-      name="address"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Contact Number"
-      v-model="restaurant.contact"
-      name="contact"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Image Link (if no link, default will be added)"
-      v-model="restaurant.cloudinaryImageId"
-      name="image"
-    />
-    <button
-      style="width: 320px; height: 40px"
-      class="px-3"
-      type="button"
-      v-on:click="addRestaurantNew"
-    >
-      Add Restaurant
-    </button>
-  </form> -->
-
   <!-- AdminLTE Theme start -->
   <div class="container-sm d-flex justify-content-center align-items-center">
-    <div class="card w-50 card-primary">
+    <div class="card w-50 mt-5 card-primary">
       <div class="card-header">
         <h3 class="card-title">Add Restaurant</h3>
       </div>

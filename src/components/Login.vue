@@ -37,7 +37,7 @@
 
   <!-- AdminLTE Theme Start -->
 
-  <body class="login-page" style="min-height: 496.797px">
+  <body class="login-page container-fluid" style="min-height: 496.797px">
     <div class="login-box">
       <div class="login-logo">
         <a href="#"><b>Admin</b>LTE</a>
@@ -46,7 +46,7 @@
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
-          <form action="../../index3.html" method="post">
+          <form>
             <div class="input-group mb-3">
               <input
                 type="email"

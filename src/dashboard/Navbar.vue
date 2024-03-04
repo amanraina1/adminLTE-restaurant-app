@@ -219,7 +219,7 @@ export default {
     },
     logout() {
       localStorage.clear();
-      location.reload();
+      // location.reload();
       this.$router.push({ name: "Signup" });
     },
   },

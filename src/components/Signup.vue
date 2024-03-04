@@ -43,7 +43,7 @@
     </router-link>
   </form> -->
 
-  <body class="register-page" style="min-height: 570.797px">
+  <body class="register-page container-fluid" style="min-height: 570.797px">
     <div class="register-box">
       <div class="register-logo">
         <a href="#"><b>Admin</b>LTE</a>

@@ -65,6 +65,7 @@ export default {
   width: 300px;
   height: 400px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px;
@@ -83,25 +84,12 @@ export default {
 
 .image-container {
   width: 273px;
-  height: 340px;
-  /* margin-right: 50px; */
-  /* margin-left: 50px; */
-  /* margin-top: 20px; */
-  margin-bottom: 20px;
-  /* border: 1px solid black; */
+  height: 380px;
   border-radius: 20px;
   overflow: hidden;
 }
-/* .image-container:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  scale: 0.9;
-  transition: all 0.05s ease;
-  border-bottom: 1px solid black;
-  background-color: #f6f6f6;
-} */
 .image-container img {
   width: 100%;
-  /* height: 182px; */
   height: 65%;
   object-fit: cover;
   border-radius: 20px;
@@ -109,33 +97,20 @@ export default {
 .details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 35%;
 }
 .name {
-  /* background-color: red; */
   width: 100%;
   height: 20%;
-  /* width: 90%;
-    display: block;
-    font-size: 20px;
-    margin: 5px;
-    font-weight: 700; */
 }
 
 .ratings {
-  /* background-color: yellow; */
   width: 100%;
-  height: 15%;
-  /* display: block;
-    margin: 5px;
-    width: 100%; */
+  height: 20%;
 }
 
 .address {
-  /* display: block; */
-  /* background-color: lightblue; */
-  height: 15%;
+  height: 20%;
 }
 
 .icon {
@@ -145,14 +120,8 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  /* background-color: blue; */
 }
 
-.icon img {
-  cursor: pointer;
-  /* width: 100px; */
-  /* background-color: green; */
-}
 button {
   padding: 5px 10px;
   border-radius: 5px;

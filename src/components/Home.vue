@@ -117,23 +117,6 @@ export default {
 };
 </script>
 <style scoped>
-.search-bar {
-  width: min-content;
-  height: min-content;
-  position: absolute;
-  right: 10px;
-  top: 60px;
-  gap: 20px;
-  display: flex;
-}
-.search-bar input {
-  /* height: 100%; */
-  width: 160px;
-  height: 40px;
-  padding-left: 20px;
-  display: block;
-  border: 1px solid skyblue;
-}
 .search-bar button {
   width: 150px;
   height: 40px;

@@ -8,7 +8,7 @@
         <ContentHeader></ContentHeader>
 
         <section class="content">
-          <div class="container-fluid">
+          <div class="container-fluid d-flex flex-column align-items-center">
             <router-view />
             <!-- <filter-todos></filter-todos> -->
           </div>
@@ -32,7 +32,6 @@ import Navbar from "./dashboard/Navbar.vue";
 import Sidebar from "./dashboard/Sidebar.vue";
 import Footer from "./dashboard/Footer.vue";
 import ContentSidebar from "./dashboard/ContentSidebar.vue";
-// import FilterTodos from "./components/Filter.vue";
 
 export default {
   name: "App",
@@ -45,17 +44,6 @@ export default {
     Sidebar,
     Footer,
     ContentSidebar,
-  },
-  methods: {
-    initializeSelect2() {
-      //Initialize Select2 Elements
-      $(".select2").select2();
-
-      //Initialize Select2 Elements
-      $(".select2bs4").select2({
-        theme: "bootstrap4",
-      });
-    },
   },
 };
 </script>

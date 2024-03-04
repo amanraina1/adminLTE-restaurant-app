@@ -13,9 +13,7 @@
     </div>
   </div>
   <br /><br /> -->
-  <div class="container">
-    <!-- <h1>Hello {{ username }}, Review a restaurant</h1>
-    <br /><br /> -->
+  <div class="container-sm">
     <ul>
       <li v-for="item in reviews" :key="item.name">
         <div class="info">
@@ -65,7 +63,7 @@
     <!-- AdminLTE Theme Start -->
     <div class="container-sm d-flex justify-content-center align-items-center">
       <div class="card w-50 card-primary">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-center">
           <h3 class="card-title">Add Review</h3>
         </div>
 
