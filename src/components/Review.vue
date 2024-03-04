@@ -166,6 +166,12 @@ export default {
       if (duplicateUser) {
         duplicateUser.message = this.message;
         duplicateUser.rating = this.rating;
+        this.$swal({
+          icon: "success",
+          title: "Review Edited !",
+        });
+        this.message = "";
+        this.review = "";
       } else {
         this.reviews = [
           ...this.reviews,
@@ -176,6 +182,12 @@ export default {
             rating: this.rating,
           },
         ];
+        this.$swal({
+          icon: "success",
+          title: "Review Added !",
+        });
+        this.message = "";
+        this.review = "";
       }
 
       // Updating the database

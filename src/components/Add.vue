@@ -102,7 +102,10 @@ export default {
         avgRating: this.restaurant.avgRating,
         reviews: [],
       });
-
+      this.$swal({
+        icon: "success",
+        title: "Restaurant Added !",
+      });
       this.$router.push({ name: "Home" });
     },
   },

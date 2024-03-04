@@ -18,8 +18,10 @@
     "axios": "^1.6.7",
     "font-awesome": "^4.7.0",
     "json-server": "^1.0.0-alpha.23",
+    "sweetalert2": "^11.10.5",
     "vue": "^3.4.15",
     "vue-router": "^4.3.0",
+    "vue-sweetalert2": "^5.0.5",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

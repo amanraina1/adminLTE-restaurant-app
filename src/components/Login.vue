@@ -83,7 +83,7 @@
 
               <div class="col-12 text-center mb-4 mt-4">
                 <button
-                  type="submit"
+                  type="button"
                   v-on:click="login"
                   class="btn btn-primary btn-block"
                 >
@@ -132,8 +132,7 @@ export default {
     }
   },
   methods: {
-    async login(e) {
-      e.preventDefault();
+    async login() {
       let result = await axios.get(
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );

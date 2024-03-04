@@ -214,12 +214,10 @@ export default {
     },
     cancel() {
       this.fetchRestaurants();
-
-      // location.reload();
     },
     logout() {
       localStorage.clear();
-      // location.reload();
+      location.reload();
       this.$router.push({ name: "Signup" });
     },
   },

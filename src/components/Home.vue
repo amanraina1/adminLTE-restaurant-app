@@ -77,6 +77,10 @@ export default {
       // console.log(id);
       this.removeRestaurants(id);
       this.loadData();
+      this.$swal({
+        icon: "success",
+        title: "Restaurant Deleted !",
+      });
     },
 
     loadData() {

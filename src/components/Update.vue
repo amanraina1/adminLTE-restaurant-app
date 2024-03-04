@@ -181,6 +181,10 @@ export default {
         avgRating: this.restaurant.avgRating,
         reviews: this.reviews,
       });
+      this.$swal({
+        icon: "success",
+        title: "Details Updated !",
+      });
       this.$router.push({ name: "Home" });
       // if (result.status === 200) {
       //   this.$router.push({ name: "Home" });
