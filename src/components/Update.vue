@@ -100,7 +100,7 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Contact Number</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               v-model="restaurant.contact"
               id="exampleInputPassword1"

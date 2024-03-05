@@ -10,25 +10,21 @@
         <span class="address text-center">{{ address }}</span>
         <div class="icon">
           <router-link :to="'/update/' + id" v-if="isAdmin">
-            <button><i title="Update" class="fa fa-edit"></i></button>
+            <button style="background-color: grey">
+              <i title="Update" class="fa fa-edit"></i>
+            </button>
           </router-link>
           <router-link :to="'/review/' + id">
             <button title="See Reviews">See Reviews</button>
           </router-link>
-          <button>
-            <i
-              title="Delete"
-              v-on:click="remove(id)"
-              v-if="isAdmin"
-              class="fa fa-trash"
-            ></i>
+          <button style="background-color: red" v-if="isAdmin">
+            <i title="Delete" v-on:click="remove(id)" class="fa fa-trash"></i>
           </button>
         </div>
       </div>
     </div>
   </div>
 </template>
-<!-- v-on:click="removeRestaurants(id)" -->
 <script>
 import { mapActions } from "vuex";
 export default {

@@ -133,6 +133,10 @@ export default {
   },
   methods: {
     async login() {
+      if (!this.email || !this.password) {
+        alert("Not Valid Credentials");
+        return;
+      }
       let result = await axios.get(
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );

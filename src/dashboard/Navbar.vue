@@ -14,7 +14,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <router-link class="nav-link" to="/">Home</router-link>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <li v-if="isAdmin" class="nav-item d-none d-sm-inline-block">
         <router-link class="nav-link" to="/add">Add Restaurant</router-link>
         <!-- <a href="/add" class="nav-link"></a> -->
       </li>
@@ -200,6 +200,7 @@ export default {
   data() {
     return {
       restaurantName: "",
+      isAdmin: false,
       toShow: false,
     };
   },
@@ -225,6 +226,7 @@ export default {
     let user = localStorage.getItem("user-info");
     if (user) {
       this.toShow = true;
+      this.isAdmin = JSON.parse(user).isAdmin;
     }
   },
 };

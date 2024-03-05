@@ -149,6 +149,10 @@ export default {
   },
   methods: {
     async sendData() {
+      if (!this.email || !this.password || !this.name) {
+        alert("Not Valid Credentials");
+        return;
+      }
       const result = await axios.post("http://127.0.0.1:3000/users", {
         name: this.name,
         email: this.email,
