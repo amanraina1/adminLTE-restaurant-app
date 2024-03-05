@@ -75,57 +75,72 @@
         <h3 class="card-title">Update Restaurant</h3>
       </div>
 
-      <form>
+      <Form :validation-schema="schema" v-slot="{ errors }">
         <div class="card-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Enter Restaurant name</label>
-            <input
+            <Field
               type="text"
               v-model="restaurant.name"
+              name="name"
               class="form-control"
+              :class="{ 'p-invalid': errors.name }"
               id="exampleInputEmail1"
               placeholder="Enter Restaurant name"
             />
+            <span class="p-error text-danger"> {{ errors.name }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Restaurant address</label>
-            <input
+            <Field
               type="text"
               class="form-control"
+              :class="{ 'p-invalid': errors.address }"
+              name="address"
               v-model="restaurant.address"
               id="exampleInputPassword1"
               placeholder="Enter Restaurant address"
             />
+            <span class="p-error text-danger"> {{ errors.address }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Contact Number</label>
-            <input
+            <Field
               type="text"
               class="form-control"
+              :class="{ 'p-invalid': errors.contact }"
+              name="contact"
               v-model="restaurant.contact"
               id="exampleInputPassword1"
               placeholder="Enter Contact Number"
             />
+            <span class="p-error text-danger"> {{ errors.contact }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Average Ratings</label>
-            <input
+            <Field
               type="text"
+              name="avgRating"
               class="form-control"
+              :class="{ 'p-invalid': errors.avgRating }"
               v-model="restaurant.avgRating"
               id="exampleInputPassword1"
               placeholder="Enter Contact Number"
             />
+            <span class="p-error text-danger"> {{ errors.avgRating }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Image Link</label>
-            <input
+            <Field
               type="text"
+              name="imageLink"
               class="form-control"
+              :class="{ 'p-invalid': errors.imageLink }"
               v-model="restaurant.cloudinaryImageId"
               id="exampleInputPassword1"
               placeholder="Enter Image Link"
             />
+            <span class="p-error text-danger"> {{ errors.imageLink }} </span>
           </div>
         </div>
 
@@ -138,17 +153,27 @@
             Update Restaurant
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   </div>
 </template>
 <script>
 import Header from "./Header.vue";
 import { mapActions } from "vuex";
+import * as yup from "yup";
+import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
   name: "Update",
   data() {
+    const schema = yup.object({
+      name: yup.string().required(),
+      address: yup.string().required(),
+      contact: yup.string().required(),
+      avgRating: yup.string().required(),
+      imageLink: yup.string().required(),
+    });
     return {
+      schema,
       id: this.$route.params.id,
       fullPaths: "",
       username: "",
@@ -165,6 +190,15 @@ export default {
   methods: {
     ...mapActions(["updatedRestaurant", "fetchRestaurants"]),
     async updateRestaurant() {
+      if (
+        !this.restaurant.name ||
+        !this.restaurant.address ||
+        !this.restaurant.contact ||
+        !this.restaurant.cloudinaryImageId ||
+        !this.restaurant.avgRating
+      ) {
+        return;
+      }
       if (this.restaurant.avgRating === "") {
         this.restaurant.avgRating = "4";
       }
@@ -206,7 +240,9 @@ export default {
     },
   },
   components: {
-    Header,
+    Form,
+    Field,
+    ErrorMessage,
   },
 
   async mounted() {

@@ -46,23 +46,29 @@
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
-          <form>
+          <Form :validation-schema="schema" v-slot="{ errors }">
             <div class="input-group mb-3">
-              <input
+              <Field
                 type="email"
+                name="email"
+                :class="{ 'p-invalid': errors.email }"
                 v-model="email"
                 class="form-control"
                 placeholder="Email"
               />
+
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
                 </div>
               </div>
             </div>
+            <span class="p-error text-danger"> {{ errors.email }} </span>
             <div class="input-group mb-3">
-              <input
+              <Field
                 type="password"
+                name="password"
+                :class="{ 'p-invalid': errors.password }"
                 class="form-control"
                 placeholder="Password"
                 v-model="password"
@@ -73,6 +79,7 @@
                 </div>
               </div>
             </div>
+            <span class="p-error text-danger"> {{ errors.password }} </span>
             <div class="row">
               <!-- <div class="col-8">
                 <div class="icheck-primary">
@@ -83,15 +90,15 @@
 
               <div class="col-12 text-center mb-4 mt-4">
                 <button
-                  type="button"
-                  v-on:click="login"
+                  type="submit"
+                  v-on:click="login()"
                   class="btn btn-primary btn-block"
                 >
                   Sign In
                 </button>
               </div>
             </div>
-          </form>
+          </Form>
           <!-- <div class="social-auth-links text-center mb-3">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-primary">
@@ -115,10 +122,18 @@
 </template>
 <script>
 import axios from "axios";
+import * as yup from "yup";
+import { Form, Field, ErrorMessage } from "vee-validate";
+
 export default {
   name: "Login",
   data() {
+    const schema = yup.object({
+      email: yup.string().email().required(),
+      password: yup.string().required(),
+    });
     return {
+      schema,
       email: "",
       password: "",
     };
@@ -131,10 +146,14 @@ export default {
       }
     }
   },
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
   methods: {
     async login() {
       if (!this.email || !this.password) {
-        alert("Not Valid Credentials");
         return;
       }
       let result = await axios.get(
@@ -146,7 +165,11 @@ export default {
         location.reload();
         this.$router.push({ name: "Home" });
       } else {
-        alert("Not Valid Credentials");
+        alert("Not valid credentials");
+        // this.$swal({
+        //   icon: "failure",
+        //   title: "Not Valid Credentials !",
+        // });
       }
     },
   },

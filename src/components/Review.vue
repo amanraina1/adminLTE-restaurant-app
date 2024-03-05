@@ -67,21 +67,25 @@
           <h3 class="card-title">Add Review</h3>
         </div>
 
-        <form>
+        <Form :validation-schema="schema" v-slot="{ errors }">
           <div class="card-body">
             <div class="form-group">
               <label for="exampleInputEmail1">Write a Review</label>
-              <input
+              <Field
                 type="text"
+                name="message"
                 v-model="message"
+                :class="{ 'p-invalid': errors.message }"
                 class="form-control"
                 id="exampleInputEmail1"
                 placeholder="Write a Review"
               />
+              <span class="p-error text-danger"> {{ errors.message }} </span>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Give Rating</label>
               <select name="rating" id="rating" class="m-4" v-model="rating">
+                <option value="0" selected>Option Name</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -92,22 +96,27 @@
           </div>
 
           <div class="card-footer">
-            <button @click="print" type="button" class="btn btn-primary">
+            <button @click="print()" type="submit" class="btn btn-primary">
               Submit
             </button>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   </div>
 </template>
 <script>
-import Header from "./Header.vue";
 import { mapActions } from "vuex";
+import * as yup from "yup";
+import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
   name: "Review",
   data() {
+    const schema = yup.object({
+      message: yup.string().required(),
+    });
     return {
+      schema,
       rating: "",
       username: "",
       userId: "",
@@ -118,7 +127,7 @@ export default {
       reviews: [],
       restaurant: {
         name: "",
-        conatct: "",
+        contact: "",
         address: "",
         cloudinaryImageId: "",
         avgRating: "",
@@ -155,7 +164,6 @@ export default {
     async print() {
       // Validation for both fields, so they are not empty
       if (!this.message || !this.rating) {
-        alert("Both fields are mandatory");
         return;
       }
 
@@ -217,7 +225,9 @@ export default {
     },
   },
   components: {
-    Header,
+    Form,
+    Field,
+    ErrorMessage,
   },
   async mounted() {
     const user = localStorage.getItem("user-info");

@@ -6,70 +6,88 @@
         <h3 class="card-title">Add Restaurant</h3>
       </div>
 
-      <form>
+      <Form :validation-schema="schema" v-slot="{ errors }">
         <div class="card-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Enter Restaurant name</label>
-            <input
+            <Field
               type="text"
+              name="name"
               v-model="restaurant.name"
               class="form-control"
+              :class="{ 'p-invalid': errors.name }"
               id="exampleInputEmail1"
               placeholder="Enter Restaurant name"
             />
+            <span class="p-error text-danger"> {{ errors.name }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Restaurant address</label>
-            <input
+            <Field
               type="text"
-              class="form-control"
+              name="address"
               v-model="restaurant.address"
+              class="form-control"
+              :class="{ 'p-invalid': errors.address }"
               id="exampleInputPassword1"
               placeholder="Enter Restaurant address"
             />
+            <span class="p-error text-danger"> {{ errors.address }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Contact Number</label>
-            <input
-              type="number"
+            <Field
+              type="text"
               class="form-control"
+              :class="{ 'p-invalid': errors.contact }"
+              name="contact"
               v-model="restaurant.contact"
               id="exampleInputPassword1"
               placeholder="Enter Contact Number"
             />
+            <span class="p-error text-danger"> {{ errors.contact }} </span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Image Link</label>
-            <input
+            <Field
               type="text"
               class="form-control"
+              name="imageLink"
               v-model="restaurant.cloudinaryImageId"
               id="exampleInputPassword1"
-              placeholder="Enter Image Link"
+              placeholder="Image Link (Optional)"
             />
           </div>
         </div>
 
         <div class="card-footer">
           <button
-            v-on:click="addRestaurantNew"
+            @click="addRestaurantNew"
             type="submit"
             class="btn btn-primary"
           >
             Add Restaurant
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   </div>
 </template>
 <script>
 import Header from "./Header.vue";
 import { mapActions } from "vuex";
+import * as yup from "yup";
+import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
   name: "Add",
   data() {
+    const schema = yup.object({
+      name: yup.string().required(),
+      address: yup.string().required(),
+      contact: yup.string().required(),
+    });
     return {
+      schema,
       username: "",
       fullPaths: "",
       restaurant: {
@@ -83,10 +101,20 @@ export default {
   },
   components: {
     Header,
+    Form,
+    Field,
+    ErrorMessage,
   },
   methods: {
     ...mapActions(["addRestaurants"]),
     async addRestaurantNew() {
+      if (
+        !this.restaurant.name ||
+        !this.restaurant.address ||
+        !this.restaurant.contact
+      ) {
+        return;
+      }
       if (this.restaurant.avgRating === "") {
         this.restaurant.avgRating = "4";
       }

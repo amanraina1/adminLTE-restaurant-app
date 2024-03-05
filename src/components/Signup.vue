@@ -51,11 +51,13 @@
       <div class="card">
         <div class="card-body register-card-body">
           <p class="login-box-msg">Register a new membership</p>
-          <form>
+          <Form :validation-schema="schema" v-slot="{ errors }">
             <div class="input-group mb-3">
-              <input
+              <Field
                 type="text"
+                name="name"
                 class="form-control"
+                :class="{ 'p-invalid': errors.name }"
                 v-model="name"
                 placeholder="Full name"
               />
@@ -65,11 +67,14 @@
                 </div>
               </div>
             </div>
+            <span class="p-error text-danger"> {{ errors.name }} </span>
             <div class="input-group mb-3">
-              <input
+              <Field
                 type="email"
+                name="email"
                 v-model="email"
                 class="form-control"
+                :class="{ 'p-invalid': errors.email }"
                 placeholder="Email"
               />
               <div class="input-group-append">
@@ -78,11 +83,14 @@
                 </div>
               </div>
             </div>
+            <span class="p-error text-danger"> {{ errors.email }} </span>
             <div class="input-group mb-3">
-              <input
+              <Field
                 type="password"
+                name="password"
                 class="form-control"
                 placeholder="Password"
+                :class="{ 'p-invalid': errors.password }"
                 v-model="password"
               />
               <div class="input-group-append">
@@ -91,6 +99,7 @@
                 </div>
               </div>
             </div>
+            <span class="p-error text-danger"> {{ errors.password }} </span>
 
             <div class="row">
               <div class="col-8">
@@ -117,7 +126,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </Form>
           <!-- <div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-primary">
@@ -138,19 +147,31 @@
 
 <script>
 import axios from "axios";
+import * as yup from "yup";
+import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
   name: "SignUp",
   data() {
+    const schema = yup.object({
+      name: yup.string().required(),
+      email: yup.string().email().required(),
+      password: yup.string().required(),
+    });
     return {
+      schema,
       name: "",
       email: "",
       password: "",
     };
   },
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
   methods: {
     async sendData() {
       if (!this.email || !this.password || !this.name) {
-        alert("Not Valid Credentials");
         return;
       }
       const result = await axios.post("http://127.0.0.1:3000/users", {
