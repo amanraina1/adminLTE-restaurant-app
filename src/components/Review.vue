@@ -286,7 +286,7 @@ export default {
   top: 0;
   left: 0;
   /* background-color: rgba(0, 0, 0, 0.1); */
-  background-color: #f4f3f31e;
+  /* background-color: #f4f3f31e; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -295,7 +295,7 @@ export default {
 }
 .modal > div {
   border: 1px solid black;
-  background-color: #f4f3f3;
+  background-color: #ffffffef;
   padding: 50px;
   border-radius: 10px;
 }

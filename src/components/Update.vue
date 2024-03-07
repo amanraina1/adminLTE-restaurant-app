@@ -191,6 +191,20 @@ export default {
     ...mapActions(["updatedRestaurant", "fetchRestaurants"]),
     async updateRestaurant() {
       if (
+        this.restaurant.name === this.getRestaurantById?.name &&
+        this.restaurant.address === this.getRestaurantById?.address &&
+        this.restaurant.contact === this.getRestaurantById?.contact &&
+        this.restaurant.cloudinaryImageId ===
+          this.getRestaurantById?.cloudinaryImageId
+      ) {
+        this.$swal({
+          icon: "error",
+          title: "No details have been changed !",
+        });
+        this.$router.push({ name: "Home" });
+        return;
+      }
+      if (
         !this.restaurant.name ||
         !this.restaurant.address ||
         !this.restaurant.contact ||
@@ -247,8 +261,6 @@ export default {
 
   async mounted() {
     let user = localStorage.getItem("user-info");
-    const { fullPath } = this.$route;
-    this.fullPaths = fullPath.split("/").filter((x) => x);
     if (!user) {
       this.$router.push({ name: "SignUp" });
       return;

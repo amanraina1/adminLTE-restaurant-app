@@ -20,7 +20,6 @@
         :contact="item.contact"
         :cloudinaryImageId="item.cloudinaryImageId"
         :id="item.id"
-        @removedata="remove($event)"
       />
     </li>
   </ul>
@@ -73,15 +72,16 @@ export default {
       );
       this.$store.state.restaurants = list;
     },
-    remove(id) {
-      // console.log(id);
-      this.removeRestaurants(id);
-      this.loadData();
-      this.$swal({
-        icon: "success",
-        title: "Restaurant Deleted !",
-      });
-    },
+    // remove(id) {
+    //   console.log(id);
+    //   this.removeRestaurants(id);
+    //   this.loadData();
+    //   this.$swal({
+    //     icon: "success",
+    //     title: "Restaurant Deleted !",
+    //   });
+    // },
+    // @removedata="remove($event)"
 
     loadData() {
       const user = localStorage.getItem("user-info");

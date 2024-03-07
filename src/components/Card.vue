@@ -1,4 +1,18 @@
 <template>
+  <div class="root">
+    <!-- <button @click="isOpen = true">Open</button> -->
+    <Teleport to="body">
+      <div v-if="isOpen" class="modal">
+        <div>
+          <h1>Are you sure you want to Delete ?</h1>
+          <button class="bg-red" @click="remove(this.reviewId)">Yes</button>
+          <button class="bg-primary" @click="isOpen = false">No</button>
+        </div>
+      </div>
+    </Teleport>
+  </div>
+
+  <!-- Modal Box up here -->
   <div class="card">
     <div class="image-container">
       <img :src="cloudinaryImageId" alt="restaurant image" />
@@ -18,7 +32,11 @@
             <button title="See Reviews">See Reviews</button>
           </router-link>
           <button style="background-color: red" v-if="isAdmin">
-            <i title="Delete" v-on:click="remove(id)" class="fa fa-trash"></i>
+            <i
+              title="Delete"
+              v-on:click="showModal(id)"
+              class="fa fa-trash"
+            ></i>
           </button>
         </div>
       </div>
@@ -32,6 +50,8 @@ export default {
   data() {
     return {
       isAdmin: "",
+      isOpen: false,
+      reviewId: "",
     };
   },
   props: {
@@ -45,7 +65,12 @@ export default {
   methods: {
     ...mapActions(["removeRestaurants", "fetchRestaurants"]),
     remove(id) {
+      this.removeRestaurants(id);
       this.$emit("removedata", id);
+    },
+    async showModal(id) {
+      this.isOpen = true;
+      this.reviewId = id;
     },
   },
 
@@ -57,6 +82,35 @@ export default {
 </script>
 
 <style scoped>
+.root {
+  position: relative;
+}
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal > div {
+  border: 1px solid black;
+  background-color: #ffffffef;
+  padding: 50px;
+  border-radius: 10px;
+}
+.modal > div button {
+  padding: 10px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: 800;
+}
 .card {
   width: 300px;
   height: 400px;
