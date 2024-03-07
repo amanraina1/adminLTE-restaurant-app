@@ -90,7 +90,6 @@ export default {
         return;
       }
       this.name = JSON.parse(user).name;
-      this.$store.dispatch("fetchRestaurants");
       this.fetchRestaurants();
     },
     selectPageHandler(i) {

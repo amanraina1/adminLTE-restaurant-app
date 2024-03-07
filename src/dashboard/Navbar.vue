@@ -20,7 +20,7 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <!-- <router-link class="nav-link" to="/add"></router-link> -->
-        <a @click="logout" class="nav-link">Logout</a>
+        <a style="cursor: pointer" @click="logout" class="nav-link">Logout</a>
       </li>
     </ul>
 

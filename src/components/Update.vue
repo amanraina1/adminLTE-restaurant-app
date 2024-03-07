@@ -259,7 +259,6 @@ export default {
       return;
     }
     this.username = JSON.parse(user).name;
-    this.$store.dispatch("fetchRestaurants");
     this.fetchRestaurants();
   },
 };

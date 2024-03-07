@@ -85,7 +85,7 @@
             <div class="form-group">
               <label for="exampleInputPassword1">Give Rating</label>
               <select name="rating" id="rating" class="m-4" v-model="rating">
-                <option value="0" selected>Option Name</option>
+                <option value="" selected>Option Name</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -141,7 +141,6 @@ export default {
       if (this.isAdmin) {
         // Logic to delete  comment by admin
         this.reviews = this.reviews.filter((item) => item.id !== id);
-        // this.reviews = deleteUser;
       } else {
         // Logic for deleting the comment on clicking of the delete icon
         const validateUser = this.reviews.filter(
@@ -149,7 +148,7 @@ export default {
         );
         this.reviews = validateUser;
       }
-      // this.$store.dispatch("updatedRestaurants");
+
       this.updatedRestaurant({
         id: this.id,
         name: this.restaurant.name,
@@ -231,8 +230,6 @@ export default {
   },
   async mounted() {
     const user = localStorage.getItem("user-info");
-    const { fullPath } = this.$route;
-    this.fullPaths = fullPath.split("/").filter((x) => x);
 
     if (!user) {
       this.$router.push({ name: "SignUp" });
@@ -242,17 +239,8 @@ export default {
     this.username = JSON.parse(user).name;
     this.isAdmin = JSON.parse(user).isAdmin;
     this.userId = JSON.parse(user).id;
-    this.$store.dispatch("fetchRestaurants");
+
     this.fetchRestaurants();
-    // let details = this.$store.getters.getRestaurant(this.id);
-    // if (details) {
-    //   this.restaurant.name = details.name;
-    //   this.restaurant.address = details.address;
-    //   this.restaurant.contact = details.contact;
-    //   this.restaurant.cloudinaryImageId = details.cloudinaryImageId;
-    //   this.restaurant.avgRating = details.avgRating;
-    //   this.reviews = details.reviews;
-    // }
   },
 };
 </script>
@@ -264,10 +252,7 @@ export default {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  /* width: 100vw; */
-  /* height: 100vh; */
   overflow-y: scroll;
-  /* background-color: red; */
 }
 
 ul {
@@ -277,8 +262,6 @@ ul {
   flex-direction: column;
   align-items: center;
   list-style: none;
-  /* background-color: green; */
-  /* margin-bottom: 10px; */
 }
 ul li {
   border: 2px solid rgb(162, 162, 162);
@@ -291,7 +274,6 @@ ul li {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* background-color: red; */
 }
 ul li .delete-icon {
   position: absolute;
@@ -323,23 +305,4 @@ ul li h4 {
   flex-direction: column;
   width: 30%;
 }
-/* .breadcrumbs-path {
-  width: 80%;
-  display: flex;
-  justify-content: start;
-  font-size: 20px;
-  text-transform: capitalize;
-  background-color: rgb(235, 235, 235);
-  padding: 10px;
-  border-bottom: 1px solid black;
-} */
-/* .breadcrumbs-path a {
-  text-decoration: none;
-  color: #333;
-  background-color: rgb(235, 235, 235);
-} */
-/* .breadcrumbs-path span {
-  color: #999;
-  background-color: rgb(235, 235, 235);
-} */
 </style>
