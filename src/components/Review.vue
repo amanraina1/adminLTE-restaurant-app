@@ -13,6 +13,21 @@
     </div>
   </div>
   <br /><br /> -->
+  <div class="root">
+    <!-- <button @click="isOpen = true">Open</button> -->
+    <Teleport to="body">
+      <div v-if="isOpen" class="modal">
+        <div>
+          <h1>Are you sure you want to Delete ?</h1>
+          <button class="bg-red" @click="deleteComment(this.reviewId)">
+            Yes
+          </button>
+          <button class="bg-primary" @click="isOpen = false">No</button>
+        </div>
+      </div>
+    </Teleport>
+  </div>
+  <!-- <Modal :isOpen @removeReview="deleteComment(this.reviewId)" /> -->
   <div class="container-sm">
     <ul>
       <li v-for="item in reviews" :key="item.name">
@@ -25,19 +40,19 @@
         </div>
         <h4>{{ item.message }}</h4>
         <img
-          v-on:click="deleteComment"
-          v-if="item.id === userId"
+          v-on:click="showModal(item.id)"
+          v-if="isAdmin || item.id === userId"
           class="delete-icon"
           src="../assets/delete.png"
           alt="delete icon"
         />
-        <img
-          v-on:click="deleteComment(item.id)"
+        <!-- <img
+          v-on:click="showModal(item.id)"
           v-if="isAdmin"
           src="../assets/delete.png"
           alt="delete icon"
           class="delete-icon"
-        />
+        /> -->
       </li>
     </ul>
     <!-- <div class="comments">
@@ -83,15 +98,23 @@
               <span class="p-error text-danger"> {{ errors.message }} </span>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Give Rating</label>
-              <select name="rating" id="rating" class="m-4" v-model="rating">
-                <option value="" selected>Option Name</option>
+              <label for="rating">Give Rating</label>
+              <Field
+                name="rating"
+                v-model="rating"
+                :class="{ 'p-invalid': errors.rating }"
+                class="form-control"
+                id="rating"
+                as="select"
+              >
+                <option value="" disabled selected>Option Name</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-              </select>
+              </Field>
+              <span class="p-error text-danger"> {{ errors.rating }} </span>
             </div>
           </div>
 
@@ -114,8 +137,11 @@ export default {
   data() {
     const schema = yup.object({
       message: yup.string().required(),
+      rating: yup.string().required(),
     });
     return {
+      isOpen: false,
+      reviewId: "",
       schema,
       rating: "",
       username: "",
@@ -136,17 +162,18 @@ export default {
   },
   methods: {
     ...mapActions(["fetchRestaurants", "updatedRestaurant"]),
-
     async deleteComment(id) {
       if (this.isAdmin) {
         // Logic to delete  comment by admin
         this.reviews = this.reviews.filter((item) => item.id !== id);
+        this.isOpen = false;
       } else {
         // Logic for deleting the comment on clicking of the delete icon
         const validateUser = this.reviews.filter(
           (item) => item.id !== this.userId
         );
         this.reviews = validateUser;
+        this.isOpen = false;
       }
 
       this.updatedRestaurant({
@@ -158,6 +185,11 @@ export default {
         avgRating: this.restaurant.avgRating,
         reviews: this.reviews,
       });
+    },
+
+    async showModal(id) {
+      this.isOpen = true;
+      this.reviewId = id;
     },
 
     async print() {
@@ -173,12 +205,12 @@ export default {
       if (duplicateUser) {
         duplicateUser.message = this.message;
         duplicateUser.rating = this.rating;
+        this.message = "";
+        this.review = "";
         this.$swal({
           icon: "success",
           title: "Review Edited !",
         });
-        this.message = "";
-        this.review = "";
       } else {
         this.reviews = [
           ...this.reviews,
@@ -189,12 +221,12 @@ export default {
             rating: this.rating,
           },
         ];
+        this.message = "";
+        this.review = "";
         this.$swal({
           icon: "success",
           title: "Review Added !",
         });
-        this.message = "";
-        this.review = "";
       }
 
       // Updating the database
@@ -246,6 +278,36 @@ export default {
 </script>
 
 <style scoped>
+.root {
+  position: relative;
+}
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  background-color: #f4f3f31e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal > div {
+  border: 1px solid black;
+  background-color: #f4f3f3;
+  padding: 50px;
+  border-radius: 10px;
+}
+.modal > div button {
+  padding: 10px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: 800;
+}
 .container {
   display: flex;
   align-items: flex-start;

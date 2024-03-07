@@ -10,7 +10,6 @@
         <section class="content">
           <div class="container-fluid d-flex flex-column align-items-center">
             <router-view />
-            <!-- <filter-todos></filter-todos> -->
           </div>
         </section>
       </div>

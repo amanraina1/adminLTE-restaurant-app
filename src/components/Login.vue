@@ -47,39 +47,46 @@
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
           <Form :validation-schema="schema" v-slot="{ errors }">
-            <div class="input-group mb-3">
-              <Field
-                type="email"
-                name="email"
-                :class="{ 'p-invalid': errors.email }"
-                v-model="email"
-                class="form-control"
-                placeholder="Email"
-              />
+            <div class="mb-4">
+              <div class="input-group">
+                <Field
+                  type="email"
+                  name="email"
+                  :class="{ 'p-invalid': errors.email }"
+                  v-model="email"
+                  class="form-control"
+                  placeholder="Email"
+                />
 
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
                 </div>
               </div>
+              <span class="p-error text-danger mb-3"> {{ errors.email }} </span>
             </div>
-            <span class="p-error text-danger"> {{ errors.email }} </span>
-            <div class="input-group mb-3">
-              <Field
-                type="password"
-                name="password"
-                :class="{ 'p-invalid': errors.password }"
-                class="form-control"
-                placeholder="Password"
-                v-model="password"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
+            <div class="mb-4">
+              <div class="input-group">
+                <Field
+                  type="password"
+                  name="password"
+                  :class="{ 'p-invalid': errors.password }"
+                  class="form-control"
+                  placeholder="Password"
+                  v-model="password"
+                />
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
                 </div>
               </div>
+              <span class="p-error text-danger">
+                {{ errors.password }}
+              </span>
             </div>
-            <span class="p-error text-danger"> {{ errors.password }} </span>
+
             <div class="row">
               <!-- <div class="col-8">
                 <div class="icheck-primary">
@@ -88,7 +95,7 @@
                 </div>
               </div> -->
 
-              <div class="col-12 text-center mb-4 mt-4">
+              <div class="col-12 text-center mb-4">
                 <button
                   type="submit"
                   v-on:click="login()"
