@@ -1,20 +1,7 @@
 <template>
   {{ this.fillDetails }}
-  <!-- <Header /> -->
-  <!-- <br /> -->
 
-  <!-- <div class="breadcrumbs-path">
-    <router-link to="/">Home </router-link>
-    <div v-for="(path, index) in fullPaths">
-      <span v-if="index === fullPaths.length - 1"> / {{ path }}</span>
-      <span v-else
-        >/<router-link to="path">{{ path }} </router-link></span
-      >
-    </div>
-  </div>
-  <br /><br /> -->
   <div class="root">
-    <!-- <button @click="isOpen = true">Open</button> -->
     <Teleport to="body">
       <div v-if="isOpen" class="modal">
         <div>
@@ -27,7 +14,7 @@
       </div>
     </Teleport>
   </div>
-  <!-- <Modal :isOpen @removeReview="deleteComment(this.reviewId)" /> -->
+
   <div class="container-sm">
     <ul>
       <li v-for="item in reviews" :key="item.name">
@@ -46,35 +33,9 @@
           src="../assets/delete.png"
           alt="delete icon"
         />
-        <!-- <img
-          v-on:click="showModal(item.id)"
-          v-if="isAdmin"
-          src="../assets/delete.png"
-          alt="delete icon"
-          class="delete-icon"
-        /> -->
       </li>
     </ul>
-    <!-- <div class="comments">
-      <input
-        type="text"
-        v-model="message"
-        placeholder="Write a Review (optional)"
-        name="review"
-      />
-      <label for="rating">Rating : </label>
-      <select name="rating" id="rating" v-model="rating">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <br />
-      <br />
-      <br />
-      <button @click="print">Submit</button>
-    </div> -->
+
     <!-- AdminLTE Theme Start -->
     <div class="container-sm d-flex justify-content-center align-items-center">
       <div class="card w-50 card-primary">
@@ -167,6 +128,10 @@ export default {
         // Logic to delete  comment by admin
         this.reviews = this.reviews.filter((item) => item.id !== id);
         this.isOpen = false;
+        this.$swal({
+          icon: "success",
+          title: "Review Deleted !",
+        });
       } else {
         // Logic for deleting the comment on clicking of the delete icon
         const validateUser = this.reviews.filter(
@@ -174,6 +139,10 @@ export default {
         );
         this.reviews = validateUser;
         this.isOpen = false;
+        this.$swal({
+          icon: "success",
+          title: "Review Deleted !",
+        });
       }
 
       this.updatedRestaurant({
@@ -285,17 +254,17 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  /* background-color: rgba(0, 0, 0, 0.1); */
-  /* background-color: #f4f3f31e; */
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.modal h1 {
+  color: aliceblue;
+}
 .modal > div {
-  border: 1px solid black;
-  background-color: #ffffffef;
+  background-color: #2f2e2eef;
   padding: 50px;
   border-radius: 10px;
 }

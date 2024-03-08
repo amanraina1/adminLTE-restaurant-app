@@ -74,7 +74,6 @@
   </div>
 </template>
 <script>
-import Header from "./Header.vue";
 import { mapActions } from "vuex";
 import * as yup from "yup";
 import { Form, Field, ErrorMessage } from "vee-validate";
@@ -100,7 +99,6 @@ export default {
     };
   },
   components: {
-    Header,
     Form,
     Field,
     ErrorMessage,

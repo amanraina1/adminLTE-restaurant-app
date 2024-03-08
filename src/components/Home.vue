@@ -50,7 +50,6 @@
   </div>
 </template>
 <script>
-import Header from "./Header.vue";
 import Card from "./Card.vue";
 import { mapActions } from "vuex";
 
@@ -111,7 +110,6 @@ export default {
     },
   },
   components: {
-    Header,
     Card,
   },
   mounted() {

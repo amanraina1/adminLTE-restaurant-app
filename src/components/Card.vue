@@ -31,12 +31,12 @@
           <router-link :to="'/review/' + id">
             <button title="See Reviews">See Reviews</button>
           </router-link>
-          <button style="background-color: red" v-if="isAdmin">
-            <i
-              title="Delete"
-              v-on:click="showModal(id)"
-              class="fa fa-trash"
-            ></i>
+          <button
+            v-on:click="showModal(id)"
+            style="background-color: red"
+            v-if="isAdmin"
+          >
+            <i title="Delete" class="fa fa-trash"></i>
           </button>
         </div>
       </div>
@@ -66,7 +66,10 @@ export default {
     ...mapActions(["removeRestaurants", "fetchRestaurants"]),
     remove(id) {
       this.removeRestaurants(id);
-      this.$emit("removedata", id);
+      this.$swal({
+        icon: "success",
+        title: "Restaurant Deleted Successfully !",
+      });
     },
     async showModal(id) {
       this.isOpen = true;
