@@ -65,10 +65,10 @@
   "restaurants": [
     {
       "name": "Subway",
-      "contact": "456789",
+      "contact": 56789,
       "address": "Sidhra Road Byepass",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/63178e3e64d503a479f2a2048a474552",
-      "avgRating": "4.5",
+      "avgRating": 4.5,
       "reviews": [
         {
           "id": "4876",
@@ -87,10 +87,10 @@
     },
     {
       "name": "McDonald's",
-      "contact": "23451",
+      "contact": 3456675,
       "address": "Sector 48",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ecd32b841549ce6bfd993260a2086c1f",
-      "avgRating": "5",
+      "avgRating": 5,
       "reviews": [
         {
           "id": "4876",
@@ -138,8 +138,8 @@
         }
       ],
       "address": "32nd Avenue",
-      "contact": "45678",
-      "avgRating": "4.3"
+      "contact": 45678,
+      "avgRating": 4
     },
     {
       "id": "27891",
@@ -166,8 +166,8 @@
         }
       ],
       "address": "Old DLF Colony",
-      "contact": "343534",
-      "avgRating": "4.4"
+      "contact": 343534,
+      "avgRating": 4
     },
     {
       "id": "20138",
@@ -194,8 +194,8 @@
         }
       ],
       "address": "Huda Shopping Center",
-      "contact": "097654",
-      "avgRating": "4.2"
+      "contact": 97654,
+      "avgRating": 4
     },
     {
       "id": "228351",
@@ -222,8 +222,8 @@
         }
       ],
       "address": "Jharsa",
-      "contact": "1234567",
-      "avgRating": "4.2"
+      "contact": 1234567,
+      "avgRating": 4
     },
     {
       "id": "89556",
@@ -250,8 +250,8 @@
         }
       ],
       "address": "Huda Market",
-      "contact": "586767347",
-      "avgRating": "4.1"
+      "contact": 586767347,
+      "avgRating": 4
     },
     {
       "id": "42958",
@@ -278,15 +278,15 @@
         }
       ],
       "address": "Huda Complex",
-      "contact": "1235",
-      "avgRating": "4.3"
+      "contact": 1235,
+      "avgRating": 4
     },
     {
       "name": "Wow! Momo",
-      "contact": "586767347",
+      "contact": 586767347,
       "address": "Huda Market",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/5a148e63e9c54942e37627da1aa156be",
-      "avgRating": "4.1",
+      "avgRating": 4.1,
       "reviews": [
         {
           "id": "4876",
@@ -334,12 +334,12 @@
         }
       ],
       "address": "Sector 14",
-      "contact": "465677",
-      "avgRating": "4.3"
+      "contact": 465677,
+      "avgRating": 4
     },
     {
       "name": "Grameen Kulfi",
-      "contact": "465677",
+      "contact": 465677,
       "address": "Acharyapuri Mode",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/nrqjhlsss9iadlaaqrqm",
       "reviews": [
@@ -362,7 +362,7 @@
           "rating": "4"
         }
       ],
-      "avgRating": "5",
+      "avgRating": 5,
       "id": "355339"
     },
     {
@@ -390,8 +390,8 @@
         }
       ],
       "address": "DLF Colony",
-      "contact": "465677",
-      "avgRating": "4.4"
+      "contact": 465677,
+      "avgRating": 4
     },
     {
       "id": "384166",
@@ -418,8 +418,8 @@
         }
       ],
       "address": "Kadipur Road",
-      "contact": "56422783",
-      "avgRating": "4.7"
+      "contact": 56422783,
+      "avgRating": 4
     },
     {
       "id": "332226",
@@ -446,8 +446,8 @@
         }
       ],
       "address": "Sector 50",
-      "contact": "4789834",
-      "avgRating": "4.5"
+      "contact": 4789834,
+      "avgRating": 4
     },
     {
       "id": "788097",
@@ -474,8 +474,8 @@
         }
       ],
       "address": "sohna road",
-      "contact": "7894334",
-      "avgRating": "3.9"
+      "contact": 7894334,
+      "avgRating": 3
     },
     {
       "id": "259714",
@@ -502,15 +502,15 @@
         }
       ],
       "address": "Mata Road",
-      "contact": "465677",
-      "avgRating": "4.6"
+      "contact": 465677,
+      "avgRating": 4
     },
     {
       "name": "Subway",
-      "contact": "456789",
+      "contact": 456789,
       "address": "Sidhra Road Byepass",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/63178e3e64d503a479f2a2048a474552",
-      "avgRating": "4.5",
+      "avgRating": 4.5,
       "id": "3939",
       "reviews": [
         {
@@ -558,8 +558,8 @@
         }
       ],
       "address": "Huda Market",
-      "contact": "243098",
-      "avgRating": "4.3"
+      "contact": 243098,
+      "avgRating": 4
     },
     {
       "id": "417319",
@@ -586,8 +586,8 @@
         }
       ],
       "address": "Jmd Galleria",
-      "contact": "243098",
-      "avgRating": "4.6"
+      "contact": 243098,
+      "avgRating": 4
     },
     {
       "name": "Briskins",
@@ -612,10 +612,10 @@
           "rating": "4"
         }
       ],
-      "contact": "96222",
+      "contact": 96222,
       "address": "Ghelai Nagar",
       "id": "c987d",
-      "avgRating": "4.5"
+      "avgRating": 4
     },
     {
       "id": "455958",
@@ -642,8 +642,8 @@
         }
       ],
       "address": "Higher Complex",
-      "contact": "109876535",
-      "avgRating": "4.3"
+      "contact": 109876535,
+      "avgRating": 4
     },
     {
       "id": "42936",
@@ -670,8 +670,8 @@
         }
       ],
       "address": "Huda Complex",
-      "contact": "098438778",
-      "avgRating": "4.1"
+      "contact": 7899876,
+      "avgRating": 4
     },
     {
       "id": "417819",
@@ -698,15 +698,15 @@
         }
       ],
       "address": "Jmd Galleria",
-      "contact": "243098",
-      "avgRating": "4.6"
+      "contact": 243098,
+      "avgRating": 4
     },
     {
       "name": "Bakingo",
-      "contact": "96222",
+      "contact": 96222,
       "address": "Shastri Nagar",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/fa68ac0434f668bba1322abda36570b3",
-      "avgRating": "4.5",
+      "avgRating": 4.5,
       "reviews": [
         {
           "id": "4ca6",
@@ -737,10 +737,10 @@
     },
     {
       "name": "Aroma Restaurant",
-      "contact": "98765432",
+      "contact": 98765432,
       "address": "Near Byepass raod",
       "cloudinaryImageId": "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=3264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "avgRating": "4",
+      "avgRating": 4,
       "reviews": [],
       "id": "45e5"
     }

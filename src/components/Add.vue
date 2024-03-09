@@ -37,7 +37,7 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Contact Number</label>
             <Field
-              type="text"
+              type="number"
               class="form-control"
               :class="{ 'p-invalid': errors.contact }"
               name="contact"
@@ -83,7 +83,7 @@ export default {
     const schema = yup.object({
       name: yup.string().required(),
       address: yup.string().required(),
-      contact: yup.string().required(),
+      contact: yup.number().required(),
     });
     return {
       schema,
@@ -92,9 +92,9 @@ export default {
       restaurant: {
         name: "",
         address: "",
-        contact: "",
+        contact: null,
         cloudinaryImageId: "",
-        avgRating: "",
+        avgRating: null,
       },
     };
   },
@@ -113,8 +113,8 @@ export default {
       ) {
         return;
       }
-      if (this.restaurant.avgRating === "") {
-        this.restaurant.avgRating = "4";
+      if (this.restaurant.avgRating === null) {
+        this.restaurant.avgRating = 4;
       }
       if (this.restaurant.cloudinaryImageId === "") {
         this.restaurant.cloudinaryImageId =

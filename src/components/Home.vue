@@ -1,17 +1,6 @@
 <template>
-  <!-- <Header /> -->
-  <!-- {{ this.restaurant }} -->
   <br />
-  <!-- <h1 class="text-center">Hello {{ name }}, Welcome to Home page</h1> -->
-  <!-- <span class="search-bar">
-    <input type="text" placeholder="Enter Name to search" v-model="search" />
-    <button title="Search a restaurant" @click="searchRestaurant">
-      Search
-    </button>
-  </span> -->
-
   <ul>
-    <!-- <img src="../assets/placeholder-restaurant.png" /> -->
     <li v-for="item in displayedPosts" :key="item.id">
       <Card
         :name="item.name"
@@ -71,16 +60,6 @@ export default {
       );
       this.$store.state.restaurants = list;
     },
-    // remove(id) {
-    //   console.log(id);
-    //   this.removeRestaurants(id);
-    //   this.loadData();
-    //   this.$swal({
-    //     icon: "success",
-    //     title: "Restaurant Deleted !",
-    //   });
-    // },
-    // @removedata="remove($event)"
 
     loadData() {
       const user = localStorage.getItem("user-info");

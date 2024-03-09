@@ -1,72 +1,5 @@
 <template>
-  <!-- <Header /> -->
-  <!-- <br /> -->
   {{ this.fillDetails }}
-  <!-- <div class="breadcrumbs-path">
-    <router-link to="/">Home </router-link>
-    <div v-for="(path, index) in fullPaths">
-      <span v-if="index === fullPaths.length - 1"> / {{ path }}</span>
-      <span v-else
-        >/<router-link to="path">{{ path }} </router-link></span
-      >
-    </div>
-  </div> -->
-  <!-- <br /><br /> -->
-  <!-- <h1>Hello {{ username }}, Update a restaurant</h1> -->
-  <!-- <br /><br /> -->
-  <!-- <form
-    class="add d-flex flex-column justify-content-center align-items-center"
-    style="gap: 50px"
-  >
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Name"
-      v-model="restaurant.name"
-      name="name"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Address"
-      v-model="restaurant.address"
-      name="address"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Contact"
-      v-model="restaurant.contact"
-      name="contact"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Enter Ratings"
-      v-model="restaurant.avgRating"
-      name="avgRating"
-    />
-    <input
-      style="width: 300px; height: 40px"
-      class="px-3"
-      type="text"
-      placeholder="Restaurant Image Link"
-      v-model="restaurant.cloudinaryImageId"
-      name="cloudinaryImageId"
-    />
-    <button
-      style="width: 320px; height: 40px"
-      class="px-3"
-      type="button"
-      v-on:click="updateRestaurant"
-    >
-      Update Restaurant
-    </button>
-  </form> -->
 
   <!-- AdminLTE Theme Start -->
   <div class="container-sm d-flex justify-content-center align-items-center">
@@ -106,7 +39,7 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Enter Contact Number</label>
             <Field
-              type="text"
+              type="number"
               class="form-control"
               :class="{ 'p-invalid': errors.contact }"
               name="contact"
@@ -119,13 +52,13 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Average Ratings</label>
             <Field
-              type="text"
+              type="number"
               name="avgRating"
               class="form-control"
               :class="{ 'p-invalid': errors.avgRating }"
               v-model="restaurant.avgRating"
               id="exampleInputPassword1"
-              placeholder="Enter Contact Number"
+              placeholder="Enter Average Ratings"
             />
             <span class="p-error text-danger"> {{ errors.avgRating }} </span>
           </div>
@@ -167,8 +100,8 @@ export default {
     const schema = yup.object({
       name: yup.string().required(),
       address: yup.string().required(),
-      contact: yup.string().required(),
-      avgRating: yup.string().required(),
+      contact: yup.number().required(),
+      avgRating: yup.number().required(),
       imageLink: yup.string().required(),
     });
     return {
@@ -180,9 +113,9 @@ export default {
       restaurant: {
         name: "",
         address: "",
-        contact: "",
+        contact: null,
         cloudinaryImageId: "",
-        avgRating: "",
+        avgRating: null,
       },
     };
   },
@@ -194,7 +127,8 @@ export default {
         this.restaurant.address === this.getRestaurantById?.address &&
         this.restaurant.contact === this.getRestaurantById?.contact &&
         this.restaurant.cloudinaryImageId ===
-          this.getRestaurantById?.cloudinaryImageId
+          this.getRestaurantById?.cloudinaryImageId &&
+        this.restaurant.avgRating === this.getRestaurantById?.avgRating
       ) {
         this.$swal({
           icon: "error",
@@ -212,8 +146,8 @@ export default {
       ) {
         return;
       }
-      if (this.restaurant.avgRating === "") {
-        this.restaurant.avgRating = "4";
+      if (this.restaurant.avgRating === null) {
+        this.restaurant.avgRating = 4;
       }
       if (this.restaurant.cloudinaryImageId === "") {
         this.restaurant.cloudinaryImageId =

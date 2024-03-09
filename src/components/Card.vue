@@ -57,8 +57,8 @@ export default {
   props: {
     name: String,
     address: String,
-    avgRating: String,
-    contact: String,
+    avgRating: Number,
+    contact: Number,
     cloudinaryImageId: String,
     id: String,
   },
@@ -99,9 +99,11 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.modal h1 {
+  color: aliceblue;
+}
 .modal > div {
-  border: 1px solid black;
-  background-color: #ffffffef;
+  background-color: #2f2e2eef;
   padding: 50px;
   border-radius: 10px;
 }

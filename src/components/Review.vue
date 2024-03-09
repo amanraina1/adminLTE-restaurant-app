@@ -1,6 +1,6 @@
 <template>
   {{ this.fillDetails }}
-
+  <!-- Rendering Modal on delete option -->
   <div class="root">
     <Teleport to="body">
       <div v-if="isOpen" class="modal">
@@ -14,8 +14,8 @@
       </div>
     </Teleport>
   </div>
-
   <div class="container-sm">
+    <!-- Rendering existing Reviews -->
     <ul>
       <li v-for="item in reviews" :key="item.name">
         <div class="info">
@@ -114,10 +114,10 @@ export default {
       reviews: [],
       restaurant: {
         name: "",
-        contact: "",
+        contact: null,
         address: "",
         cloudinaryImageId: "",
-        avgRating: "",
+        avgRating: null,
       },
     };
   },
@@ -242,6 +242,7 @@ export default {
     this.userId = JSON.parse(user).id;
 
     this.fetchRestaurants();
+    // this.fillDetails();
   },
 };
 </script>
