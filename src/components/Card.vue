@@ -1,11 +1,10 @@
 <template>
   <div class="root">
-    <!-- <button @click="isOpen = true">Open</button> -->
     <Teleport to="body">
       <div v-if="isOpen" class="modal">
         <div>
           <h1>Are you sure you want to Delete ?</h1>
-          <button class="bg-red" @click="remove(this.reviewId)">Yes</button>
+          <button class="bg-red" @click="remove(id)">Yes</button>
           <button class="bg-primary" @click="isOpen = false">No</button>
         </div>
       </div>
@@ -28,11 +27,29 @@
               <i title="Update" class="fa fa-edit"></i>
             </button>
           </router-link>
+
+          <button
+            v-if="!isAdmin && fav === 'false'"
+            @click="addFavourite(id)"
+            class="favourite-btn"
+            title="Add to favourite"
+          >
+            Favourite
+          </button>
+          <button
+            v-if="!isAdmin && fav === 'true'"
+            @click="removeFavourite(id)"
+            class="remove-btn"
+            title="Add to favourite"
+          >
+            Remove
+          </button>
+
           <router-link :to="'/review/' + id">
             <button title="See Reviews">See Reviews</button>
           </router-link>
           <button
-            v-on:click="showModal(id)"
+            v-on:click="showModal()"
             style="background-color: red"
             v-if="isAdmin"
           >
@@ -45,13 +62,15 @@
 </template>
 <script>
 import { mapActions } from "vuex";
+import axios from "axios";
 export default {
   name: "Card",
   data() {
     return {
       isAdmin: "",
       isOpen: false,
-      reviewId: "",
+      userId: "",
+      favourites: [],
     };
   },
   props: {
@@ -61,7 +80,9 @@ export default {
     contact: Number,
     cloudinaryImageId: String,
     id: String,
+    fav: String,
   },
+  // emits: ["deleted"],
   methods: {
     ...mapActions(["removeRestaurants", "fetchRestaurants"]),
     remove(id) {
@@ -71,15 +92,69 @@ export default {
         title: "Restaurant Deleted Successfully !",
       });
     },
-    async showModal(id) {
+    async showModal() {
       this.isOpen = true;
-      this.reviewId = id;
+    },
+    async addFavourite(id) {
+      // To get a list of existing favourite restaurants
+      let response = await axios.get(
+        `http://localhost:3000/users/${this.userId}`
+      );
+      this.favourites = response.data.favourites;
+
+      // To check whether this restaurant exists already or not
+      const existingRestaurant = this.favourites.find((item) => item === id);
+      if (existingRestaurant) {
+        this.$swal({
+          icon: "info",
+          title: "Already added",
+        });
+        return;
+      }
+      // To add a new fav restaurant
+      let result = await axios.patch(
+        `http://localhost:3000/users/${this.userId}`,
+        {
+          favourites: [...this.favourites, id],
+        }
+      );
+      if (result.status === 200) {
+        this.$swal({
+          icon: "success",
+          title: "Added to Favourites",
+        });
+      }
+    },
+    async removeFavourite(id) {
+      // To get a list of existing favourite restaurants
+      let response = await axios.get(
+        `http://localhost:3000/users/${this.userId}`
+      );
+      this.favourites = response.data.favourites;
+      this.favourites = this.favourites.filter((item) => item !== id);
+      // To remove fav restaurant
+      let result = await axios.patch(
+        `http://localhost:3000/users/${this.userId}`,
+        {
+          favourites: [...this.favourites],
+        }
+      );
+      if (result.status === 200) {
+        // this.$emit("deleted");
+        this.$swal({
+          icon: "success",
+          title: "Removed from favourites",
+        });
+      }
+
+      // console.log(this.favourites, id);
     },
   },
 
-  mounted() {
+  async mounted() {
     const user = localStorage.getItem("user-info");
     this.isAdmin = JSON.parse(user).isAdmin;
+    this.userId = JSON.parse(user).id;
   },
 };
 </script>
@@ -92,7 +167,6 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  /* background-color: rgba(0, 0, 0, 0.1); */
   width: 100%;
   height: 100%;
   display: flex;
@@ -172,11 +246,16 @@ export default {
   width: 100%;
   height: 40%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 20px;
 }
-
+.favourite-btn {
+  background-color: rgb(17, 158, 22);
+}
+.remove-btn {
+  background-color: rgb(238, 39, 39);
+}
 button {
   padding: 5px 10px;
   border-radius: 5px;

@@ -173,10 +173,6 @@ export default {
         this.$router.push({ name: "Home" });
       } else {
         alert("Not valid credentials");
-        // this.$swal({
-        //   icon: "failure",
-        //   title: "Not Valid Credentials !",
-        // });
       }
     },
   },

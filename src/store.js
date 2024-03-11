@@ -11,6 +11,7 @@ const store = createStore({
     },
     getRestaurant: (state) => (id) => {
       const result = state.restaurants.find((x) => x.id === id);
+      // console.log(result);
       return result;
     },
   },

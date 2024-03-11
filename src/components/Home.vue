@@ -9,6 +9,7 @@
         :contact="item.contact"
         :cloudinaryImageId="item.cloudinaryImageId"
         :id="item.id"
+        fav="false"
       />
     </li>
   </ul>

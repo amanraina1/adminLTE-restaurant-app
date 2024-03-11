@@ -4,6 +4,7 @@ import Login from "./components/Login.vue";
 import Update from "./components/Update.vue";
 import Add from "./components/Add.vue";
 import Review from "./components/Review.vue";
+import Favourites from "./components/Favourites.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -37,6 +38,11 @@ const routes = [
     name: "Review",
     component: Review,
     path: "/review/:id",
+  },
+  {
+    name: "Favourites",
+    component: Favourites,
+    path: "/favourite/:id",
   },
 ];
 

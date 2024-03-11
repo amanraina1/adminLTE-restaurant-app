@@ -53,7 +53,9 @@
       "name": "User",
       "email": "user@example.com",
       "password": "user",
-      "favourites": [],
+      "favourites": [
+        "3939"
+      ],
       "isAdmin": false
     },
     {

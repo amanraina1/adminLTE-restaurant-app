@@ -16,10 +16,13 @@
       </li>
       <li v-if="isAdmin" class="nav-item d-none d-sm-inline-block">
         <router-link class="nav-link" to="/add">Add Restaurant</router-link>
-        <!-- <a href="/add" class="nav-link"></a> -->
+      </li>
+      <li v-if="!isAdmin" class="nav-item d-none d-sm-inline-block">
+        <router-link class="nav-link" :to="'/favourite/' + userId"
+          >See Favourites</router-link
+        >
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <!-- <router-link class="nav-link" to="/add"></router-link> -->
         <a style="cursor: pointer" @click="logout" class="nav-link">Logout</a>
       </li>
     </ul>
@@ -202,12 +205,12 @@ export default {
       restaurantName: "",
       isAdmin: false,
       toShow: false,
+      userId: "",
     };
   },
   methods: {
     ...mapActions(["fetchRestaurants"]),
     search() {
-      // console.log(this.restaurantName);
       let restaurantList = this.$store.getters.allRestaurants.filter((item) =>
         item.name.includes(this.restaurantName)
       );
@@ -227,6 +230,7 @@ export default {
     if (user) {
       this.toShow = true;
       this.isAdmin = JSON.parse(user).isAdmin;
+      this.userId = JSON.parse(user).id;
     }
   },
 };
