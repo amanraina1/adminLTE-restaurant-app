@@ -5,6 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "password": "admin",
+      "favourites": [],
       "isAdmin": true
     },
     {
@@ -12,6 +13,7 @@
       "name": "Peter",
       "email": "peter@mail.com",
       "password": "peter",
+      "favourites": [],
       "isAdmin": false
     },
     {
@@ -19,6 +21,7 @@
       "name": "testing",
       "email": "test@testing.com",
       "password": "122334",
+      "favourites": [],
       "isAdmin": false
     },
     {
@@ -26,6 +29,7 @@
       "name": "aman raina",
       "email": "amanraina@test.com",
       "password": "me@maanraina",
+      "favourites": [],
       "isAdmin": false
     },
     {
@@ -33,25 +37,31 @@
       "name": "Naruto",
       "email": "naruto@mail.com",
       "password": "naruto",
+      "favourites": [],
       "isAdmin": false
     },
     {
       "id": "e12c",
       "name": "Aman Raina",
       "email": "aman@test.com",
-      "password": "122334"
+      "password": "122334",
+      "favourites": [],
+      "isAdmin": false
     },
     {
       "id": "43f3",
       "name": "User",
       "email": "user@example.com",
-      "password": "user"
+      "password": "user",
+      "favourites": [],
+      "isAdmin": false
     },
     {
       "id": "bc8c",
       "name": "Aman Raina",
       "email": "aman@example.com",
       "password": "123456",
+      "favourites": [],
       "isAdmin": false
     },
     {
@@ -59,6 +69,7 @@
       "name": "Aman Raina",
       "email": "aman@example.com",
       "password": "123456",
+      "favourites": [],
       "isAdmin": false
     }
   ],
