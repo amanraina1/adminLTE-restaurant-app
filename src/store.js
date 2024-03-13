@@ -55,6 +55,15 @@ const store = createStore({
       });
       commit("updatedRestaurants", payload);
     },
+    async updatedReviews({ commit }, payload) {
+      const response = await axios.patch(
+        `http://localhost:3000/restaurants/${payload.id}`,
+        {
+          reviews: payload.reviews,
+        }
+      );
+      commit("updateReviews", response.data);
+    },
 
     async addRestaurants({ commit }, title) {
       const result = await axios.post(`http://localhost:3000/restaurants`, {
@@ -110,6 +119,15 @@ const store = createStore({
     },
 
     updatedRestaurants: (state, payload) => {
+      const restaurant = state.restaurants.find((x) => x.id === payload.id);
+      restaurant.name = payload.name;
+      restaurant.contact = payload.contact;
+      restaurant.address = payload.address;
+      restaurant.cloudinaryImageId = payload.cloudinaryImageId;
+      restaurant.avgRating = payload.avgRating;
+      restaurant.reviews = payload.reviews;
+    },
+    updateReviews: (state, payload) => {
       const restaurant = state.restaurants.find((x) => x.id === payload.id);
       restaurant.name = payload.name;
       restaurant.contact = payload.contact;

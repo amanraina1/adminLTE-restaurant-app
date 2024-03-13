@@ -119,7 +119,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchRestaurants", "updatedRestaurant"]),
+    ...mapActions(["fetchRestaurants", "updatedRestaurant", "updatedReviews"]),
     async deleteComment(id) {
       if (this.isAdmin) {
         // Logic to delete  comment by admin
@@ -142,13 +142,8 @@ export default {
         });
       }
 
-      this.updatedRestaurant({
+      this.updatedReviews({
         id: this.id,
-        name: this.restaurant.name,
-        contact: this.restaurant.contact,
-        address: this.restaurant.address,
-        cloudinaryImageId: this.restaurant.cloudinaryImageId,
-        avgRating: this.restaurant.avgRating,
         reviews: this.reviews,
       });
     },
@@ -196,13 +191,8 @@ export default {
       }
 
       // Updating the database
-      this.updatedRestaurant({
+      this.updatedReviews({
         id: this.id,
-        name: this.restaurant.name,
-        contact: this.restaurant.contact,
-        address: this.restaurant.address,
-        cloudinaryImageId: this.restaurant.cloudinaryImageId,
-        avgRating: this.restaurant.avgRating,
         reviews: this.reviews,
       });
     },

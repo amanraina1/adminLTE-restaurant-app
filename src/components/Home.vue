@@ -15,7 +15,7 @@
   </ul>
   <!-- Pagination Code  -->
 
-  <div v-if="this.restaurant.length > 0" class="pagination">
+  <div v-if="this.restaurants.length > 0" class="pagination">
     <span
       :class="page === 1 ? 'pagination__disable' : ''"
       v-on:click="selectPageHandler(page - 1)"
@@ -24,13 +24,13 @@
     <span
       :class="page === i + 1 ? 'pagination__selected' : ''"
       v-on:click="selectPageHandler(i + 1)"
-      v-for="(item, i) in [...Array(Math.ceil(this.restaurant.length / 6))]"
+      v-for="(item, i) in [...Array(Math.ceil(this.restaurants.length / 6))]"
     >
       {{ i + 1 }}
     </span>
     <span
       :class="
-        page === Math.ceil(this.restaurant.length / 6)
+        page === Math.ceil(this.restaurants.length / 6)
           ? 'pagination__disable'
           : ''
       "
@@ -50,7 +50,6 @@ export default {
       name: "",
       page: 1,
       search: "",
-      restaurant: [],
     };
   },
   methods: {
@@ -62,19 +61,10 @@ export default {
       this.$store.state.restaurants = list;
     },
 
-    loadData() {
-      const user = localStorage.getItem("user-info");
-      if (!user) {
-        this.$router.push({ name: "SignUp" });
-        return;
-      }
-      this.name = JSON.parse(user).name;
-      this.fetchRestaurants();
-    },
     selectPageHandler(i) {
       if (
         i >= 1 &&
-        i <= Math.ceil(this.restaurant.length / 6) &&
+        i <= Math.ceil(this.restaurants.length / 6) &&
         i !== this.page
       )
         this.page = i;
@@ -82,18 +72,23 @@ export default {
   },
   computed: {
     displayedPosts() {
-      this.restaurant = this.$store.getters.allRestaurants;
       return this.restaurants.slice(this.page * 6 - 6, this.page * 6);
     },
     restaurants() {
-      return this.$store.state.restaurants;
+      return this.$store.getters.allRestaurants;
     },
   },
   components: {
     Card,
   },
-  mounted() {
-    this.loadData();
+  async mounted() {
+    const user = localStorage.getItem("user-info");
+    if (!user) {
+      this.$router.push({ name: "SignUp" });
+      return;
+    }
+    this.name = JSON.parse(user).name;
+    await this.fetchRestaurants();
   },
 };
 </script>
@@ -117,7 +112,6 @@ ul {
   flex-wrap: wrap;
   list-style-type: none;
   border-radius: 50px;
-  /* border: 1px solid black; */
 }
 .pagination {
   padding: 10px;
