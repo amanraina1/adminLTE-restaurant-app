@@ -42,7 +42,7 @@
           <h3 class="card-title">Add Review</h3>
         </div>
 
-        <Form :validation-schema="schema" v-slot="{ errors }">
+        <Form @submit="print()" :validation-schema="schema" v-slot="{ errors }">
           <div class="card-body">
             <div class="form-group">
               <label for="exampleInputEmail1">Write a Review</label>
@@ -79,9 +79,7 @@
           </div>
 
           <div class="card-footer">
-            <button @click="print()" type="submit" class="btn btn-primary">
-              Submit
-            </button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </Form>
       </div>
