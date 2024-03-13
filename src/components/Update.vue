@@ -1,6 +1,4 @@
 <template>
-  {{ this.fillDetails }}
-
   <!-- AdminLTE Theme Start -->
   <div class="container-sm d-flex justify-content-center align-items-center">
     <div class="card w-50 mt-5 card-primary">
@@ -167,12 +165,7 @@ export default {
         title: "Details Updated !",
       });
       this.$router.push({ name: "Home" });
-      // if (result.status === 200) {
-      //   this.$router.push({ name: "Home" });
-      // }
     },
-  },
-  computed: {
     fillDetails() {
       this.restaurant.name = this.getRestaurantById?.name;
       this.restaurant.address = this.getRestaurantById?.address;
@@ -182,6 +175,8 @@ export default {
       this.restaurant.avgRating = this.getRestaurantById?.avgRating;
       this.reviews = this.getRestaurantById?.reviews;
     },
+  },
+  computed: {
     getRestaurantById() {
       return this.$store.getters.getRestaurant(this.id);
     },
@@ -204,7 +199,8 @@ export default {
       return;
     }
     this.username = JSON.parse(user).name;
-    this.fetchRestaurants();
+    await this.fetchRestaurants();
+    this.fillDetails();
   },
 };
 </script>

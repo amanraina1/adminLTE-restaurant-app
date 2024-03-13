@@ -1,5 +1,4 @@
 <template>
-  {{ this.fillDetails }}
   <!-- Rendering Modal on delete option -->
   <div class="root">
     <Teleport to="body">
@@ -209,8 +208,6 @@ export default {
         reviews: this.reviews,
       });
     },
-  },
-  computed: {
     fillDetails() {
       this.restaurant.name = this.getRestaurantById?.name;
       this.restaurant.address = this.getRestaurantById?.address;
@@ -220,6 +217,8 @@ export default {
       this.restaurant.avgRating = this.getRestaurantById?.avgRating;
       this.reviews = this.getRestaurantById?.reviews;
     },
+  },
+  computed: {
     getRestaurantById() {
       return this.$store.getters.getRestaurant(this.id);
     },
@@ -241,8 +240,8 @@ export default {
     this.isAdmin = JSON.parse(user).isAdmin;
     this.userId = JSON.parse(user).id;
 
-    this.fetchRestaurants();
-    // this.fillDetails();
+    await this.fetchRestaurants();
+    this.fillDetails();
   },
 };
 </script>

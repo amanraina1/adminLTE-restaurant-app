@@ -50,7 +50,12 @@
     },
     {
       "email": "user@example.com",
-      "favourites": [],
+      "favourites": [
+        "3939",
+        "411518",
+        "145541",
+        "27891"
+      ],
       "id": "43f3",
       "isAdmin": false,
       "name": "User",
@@ -76,7 +81,7 @@
   "restaurants": [
     {
       "name": "Subway",
-      "contact": 56789,
+      "contact": 5678910,
       "address": "Sidhra Road Byepass",
       "cloudinaryImageId": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/63178e3e64d503a479f2a2048a474552",
       "avgRating": 4.5,
