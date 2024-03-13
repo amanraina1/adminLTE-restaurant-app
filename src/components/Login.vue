@@ -97,7 +97,7 @@
 
               <div class="col-12 text-center mb-4">
                 <button
-                  type="submit"
+                  type="button"
                   v-on:click="login()"
                   class="btn btn-primary btn-block"
                 >
@@ -169,7 +169,7 @@ export default {
 
       if (result.status === 200 && result.data.length > 0) {
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
-        location.reload();
+        // location.reload();
         this.$router.push({ name: "Home" });
       } else {
         alert("Not valid credentials");

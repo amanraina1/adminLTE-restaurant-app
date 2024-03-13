@@ -36,7 +36,6 @@ export default {
   name: "App",
 
   components: {
-    // FilterTodos,
     Preloader,
     ContentHeader,
     Navbar,
@@ -50,32 +49,3 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback");
 </style>
-
-<!-- <template>
-  <Navbar />
-  <Sidebar />
-  <Preloader />
-  <ContentHeader />
-  <ContentSidebar />
-  <Footer />
-</template>
-
-<script>
-import Navbar from "./components/Navbar.vue";
-import Sidebar from "./components/Sidebar.vue";
-import Preloader from "./components/Preloader.vue";
-import ContentHeader from "./components/ContentHeader.vue";
-import ContentSidebar from "./components/ContentSidebar.vue";
-import Footer from "./components/Footer.vue";
-export default {
-  name: "App",
-  components: {
-    Navbar,
-    Sidebar,
-    Preloader,
-    ContentHeader,
-    ContentSidebar,
-    Footer,
-  },
-};
-</script> -->

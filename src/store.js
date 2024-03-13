@@ -4,15 +4,31 @@ import axios from "axios";
 const store = createStore({
   state: {
     restaurants: [],
+    users: [],
   },
   getters: {
+    // {{ Restaurant APIs }}
     allRestaurants: (state) => {
       return state.restaurants;
     },
     getRestaurant: (state) => (id) => {
-      const result = state.restaurants.find((x) => x.id === id);
-      // console.log(result);
+      const result = state.restaurants.find((item) => item.id === id);
       return result;
+    },
+
+    // {{ Users APIs }}
+    allUsers: (state) => {
+      return state.users;
+    },
+    getUserByEmail: (state) => (email, password) => {
+      const response = state.users.find(
+        (user) => user.email === email && user.password === password
+      );
+      return response;
+    },
+    getUserById: (state) => (id) => {
+      const response = state.users.find((user) => user.id === id);
+      return response;
     },
   },
 
@@ -22,11 +38,12 @@ const store = createStore({
       const response = await axios.get("http://localhost:3000/restaurants");
       commit("setRestaurants", response.data);
     },
+
     async removeRestaurants({ commit }, id) {
       await axios.delete(`http://localhost:3000/restaurants/${id}`);
-      // console.log("Commit :", this.state.restaurants);
       commit("removeRestaurant", id);
     },
+
     async updatedRestaurant({ commit }, payload) {
       await axios.put(`http://localhost:3000/restaurants/${payload.id}`, {
         name: payload.name,
@@ -38,6 +55,7 @@ const store = createStore({
       });
       commit("updatedRestaurants", payload);
     },
+
     async addRestaurants({ commit }, title) {
       const result = await axios.post(`http://localhost:3000/restaurants`, {
         name: title.restaurantName,
@@ -50,6 +68,37 @@ const store = createStore({
 
       commit("addRestaurants", result.data);
     },
+
+    // {{ Users APIs }}
+    async fetchUsers({ commit }) {
+      const response = await axios.get("http://localhost:3000/users");
+      commit("setUsers", response.data);
+    },
+
+    async addFavRestaurant({ commit }, data) {
+      const response = await axios.patch(
+        `http://localhost:3000/users/${data[1]}`,
+        {
+          favourites: data[0],
+        }
+      );
+      commit("addFavourite", response.data);
+    },
+
+    async removeFavourites({ commit }, data) {
+      const response = await axios.put(
+        `http://localhost:3000/users/${data.id}`,
+        {
+          email: data.email,
+          favourites: data.favourites,
+          id: data.id,
+          isAdmin: data.isAdmin,
+          name: data.name,
+          password: data.password,
+        }
+      );
+      commit("deleteFavourite", response.data);
+    },
   },
 
   mutations: {
@@ -58,8 +107,8 @@ const store = createStore({
 
     removeRestaurant: (state, id) => {
       state.restaurants = state.restaurants.filter((todo) => todo.id !== id);
-      // console.log("Mutations :", state.restaurants);
     },
+
     updatedRestaurants: (state, payload) => {
       const restaurant = state.restaurants.find((x) => x.id === payload.id);
       restaurant.name = payload.name;
@@ -69,7 +118,25 @@ const store = createStore({
       restaurant.avgRating = payload.avgRating;
       restaurant.reviews = payload.reviews;
     },
+
     addRestaurants: (state, title) => state.restaurants.unshift(title),
+
+    // {{ Users APIs }}
+    setUsers: (state, users) => (state.users = users),
+    deleteFavourite: (state, response) => {
+      const index = state.users.findIndex((item) => item.id === response.id);
+      if (index !== -1) {
+        state.users[index] = response;
+      }
+    },
+
+    addFavourite: (state, response) => {
+      const index = state.users.findIndex((item) => item.id === response.id);
+
+      if (index !== -1) {
+        state.users[index] = response;
+      }
+    },
   },
 });
 export default store;

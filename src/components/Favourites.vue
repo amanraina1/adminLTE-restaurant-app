@@ -1,7 +1,5 @@
 <template>
-  <!-- {{ this.fillDetails() }} -->
-  <!-- <input type="text " v-model="name" /> -->
-  <ul v-if="details.length">
+  <ul v-if="details.length > 0">
     <li v-for="item in details" :key="item.id">
       <Card
         :name="item.name"
@@ -11,6 +9,7 @@
         :cloudinaryImageId="item.cloudinaryImageId"
         :id="item.id"
         fav="true"
+        @removeFav="removeFavourite($event)"
       />
     </li>
   </ul>
@@ -21,7 +20,6 @@
 
 <script>
 import Card from "./Card.vue";
-import axios from "axios";
 import { mapActions } from "vuex";
 export default {
   data() {
@@ -37,26 +35,44 @@ export default {
       details: [],
       userId: this.$route.params.id,
       favRestId: [],
+      favourites: [],
     };
   },
+
   components: {
     Card,
   },
+
   methods: {
-    ...mapActions(["fetchRestaurants"]),
-    // deleteRestFromFav() {
-    //   console.log("deleted");
-    //   this.fetchRestaurants();
-    //   this.fillDetails();
-    // },
+    ...mapActions(["fetchRestaurants", "fetchUsers", "removeFavourites"]),
+
     getRestaurants(id) {
       return this.$store.getters.getRestaurant(id);
     },
-    async fillDetails() {
-      const userData = await axios.get(
-        `http://localhost:3000/users/${this.userId}`
-      );
-      this.favRestId = userData.data.favourites;
+
+    async removeFavourite(id) {
+      let response = this.getUser;
+      this.favourites = response.favourites.filter((item) => item !== id);
+      const data = this.$store.getters.getUserById(this.userId);
+
+      await this.removeFavourites({
+        id: this.userId,
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        isAdmin: data.isAdmin,
+        favourites: this.favourites,
+      });
+      this.details = [];
+      this.fillDetails();
+
+      this.$swal({
+        icon: "success",
+        title: "Removed from favourites",
+      });
+    },
+    fillDetails() {
+      this.favRestId = this.getUser?.favourites;
       this.favRestId?.map((item) => {
         this.restaurant.name = this.getRestaurants(item)?.name;
         this.restaurant.address = this.getRestaurants(item)?.address;
@@ -66,13 +82,19 @@ export default {
           this.getRestaurants(item)?.cloudinaryImageId;
         this.restaurant.id = item;
         this.details.push(this.restaurant);
-        this.restaurant = [];
+        this.restaurant = {};
       });
-      //   console.log(this.details);
     },
   },
-  mounted() {
+  computed: {
+    getUser() {
+      return this.$store.getters.getUserById(this.userId);
+    },
+  },
+
+  async mounted() {
     this.fetchRestaurants();
+    await this.fetchUsers();
     this.fillDetails();
   },
 };
@@ -85,7 +107,6 @@ ul {
   flex-wrap: wrap;
   list-style-type: none;
   border-radius: 50px;
-  /* border: 1px solid black; */
 }
 
 .elseMsg {

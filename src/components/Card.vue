@@ -40,7 +40,7 @@
             v-if="!isAdmin && fav === 'true'"
             @click="removeFavourite(id)"
             class="remove-btn"
-            title="Add to favourite"
+            title="Remove from favourite"
           >
             Remove
           </button>
@@ -62,7 +62,6 @@
 </template>
 <script>
 import { mapActions } from "vuex";
-import axios from "axios";
 export default {
   name: "Card",
   data() {
@@ -82,9 +81,15 @@ export default {
     id: String,
     fav: String,
   },
-  // emits: ["deleted"],
+  emits: ["removeFav"],
   methods: {
-    ...mapActions(["removeRestaurants", "fetchRestaurants"]),
+    ...mapActions([
+      "removeRestaurants",
+      "fetchRestaurants",
+      "removeFavourites",
+      "fetchUsers",
+      "addFavRestaurant",
+    ]),
     remove(id) {
       this.removeRestaurants(id);
       this.$swal({
@@ -97,10 +102,8 @@ export default {
     },
     async addFavourite(id) {
       // To get a list of existing favourite restaurants
-      let response = await axios.get(
-        `http://localhost:3000/users/${this.userId}`
-      );
-      this.favourites = response.data.favourites;
+      let response = this.$store.getters.getUserById(this.userId);
+      this.favourites = response.favourites;
 
       // To check whether this restaurant exists already or not
       const existingRestaurant = this.favourites.find((item) => item === id);
@@ -112,42 +115,18 @@ export default {
         return;
       }
       // To add a new fav restaurant
-      let result = await axios.patch(
-        `http://localhost:3000/users/${this.userId}`,
-        {
-          favourites: [...this.favourites, id],
-        }
-      );
-      if (result.status === 200) {
-        this.$swal({
-          icon: "success",
-          title: "Added to Favourites",
-        });
-      }
-    },
-    async removeFavourite(id) {
-      // To get a list of existing favourite restaurants
-      let response = await axios.get(
-        `http://localhost:3000/users/${this.userId}`
-      );
-      this.favourites = response.data.favourites;
-      this.favourites = this.favourites.filter((item) => item !== id);
-      // To remove fav restaurant
-      let result = await axios.patch(
-        `http://localhost:3000/users/${this.userId}`,
-        {
-          favourites: [...this.favourites],
-        }
-      );
-      if (result.status === 200) {
-        // this.$emit("deleted");
-        this.$swal({
-          icon: "success",
-          title: "Removed from favourites",
-        });
-      }
 
-      // console.log(this.favourites, id);
+      this.favourites = [...this.favourites, id];
+      this.addFavRestaurant([this.favourites, this.userId]);
+
+      this.$swal({
+        icon: "success",
+        title: "Added to Favourites",
+      });
+    },
+    removeFavourite(id) {
+      this.$emit("removeFav", id);
+      // console.log(id);
     },
   },
 
@@ -155,6 +134,7 @@ export default {
     const user = localStorage.getItem("user-info");
     this.isAdmin = JSON.parse(user).isAdmin;
     this.userId = JSON.parse(user).id;
+    await this.fetchUsers();
   },
 };
 </script>
@@ -198,13 +178,15 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 20px;
+  user-select: none;
+  cursor: pointer;
+  background-color: #f4f6f9;
+  box-shadow: none;
 }
 .card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  scale: 0.9;
-  transition: all 300ms ease;
-  border-bottom: 1px solid black;
-  background-color: #f6f6f6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  transition: all 100ms ease;
 }
 .details .icon img {
   width: 30px;

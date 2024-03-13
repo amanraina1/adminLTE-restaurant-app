@@ -49,14 +49,12 @@
       "isAdmin": false
     },
     {
-      "id": "43f3",
-      "name": "User",
       "email": "user@example.com",
-      "password": "user",
-      "favourites": [
-        "3939"
-      ],
-      "isAdmin": false
+      "favourites": [],
+      "id": "43f3",
+      "isAdmin": false,
+      "name": "User",
+      "password": "user"
     },
     {
       "id": "bc8c",
