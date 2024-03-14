@@ -1,4 +1,9 @@
 <template>
+  <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit soluta autem
+  cupiditate distinctio eaque quam vel aperiam dolorem itaque. Eius, temporibus
+  et! Dolores iste, rem, minima autem quae voluptates optio quam repellat,
+  perferendis neque natus alias ex. Ab dolores unde explicabo tempore eveniet
+  consectetur maxime ea nobis, temporibus quo assumenda minima? -->
   <!-- Rendering Modal on delete option -->
   <div class="root">
     <Teleport to="body">
@@ -13,25 +18,52 @@
       </div>
     </Teleport>
   </div>
+
   <div class="container-sm">
     <!-- Rendering existing Reviews -->
     <ul>
-      <li v-for="item in reviews" :key="item.name">
+      <li
+        :style="this.getRandomColor()"
+        v-for="item in reviews"
+        :key="item.name"
+      >
         <div class="info">
           <span class="profile">
             <img src="../assets/avatar.svg" alt="user avatar" />
             <b>{{ item.name }} </b>
           </span>
-          <span>{{ item.rating }}⭐️</span>
+          <span>
+            <img
+              v-for="item in item.rating"
+              src="../assets/filledStar.png"
+              alt=""
+              srcset=""
+            />
+            <img
+              v-for="item in 5 - item.rating"
+              src="../assets/emptyStar.png"
+              alt=""
+              srcset=""
+            />
+          </span>
         </div>
         <h4>{{ item.message }}</h4>
-        <img
+        <!-- <img
           v-on:click="showModal(item.id)"
           v-if="isAdmin || item.id === userId"
           class="delete-icon"
           src="../assets/delete.png"
           alt="delete icon"
-        />
+        /> -->
+        <div class="button">
+          <button
+            v-on:click="showModal(item.id)"
+            v-if="isAdmin || item.id === userId"
+            class="delete-icon"
+          >
+            Delete
+          </button>
+        </div>
       </li>
     </ul>
 
@@ -67,7 +99,7 @@
                 id="rating"
                 as="select"
               >
-                <option value="" disabled selected>Option Name</option>
+                <option value="" disabled selected>Select Rating</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -94,7 +126,10 @@ export default {
   name: "Review",
   data() {
     const schema = yup.object({
-      message: yup.string().required(),
+      message: yup
+        .string()
+        .required()
+        .max(100, "This field must not exceed 100 words!"),
       rating: yup.string().required(),
     });
     return {
@@ -120,6 +155,10 @@ export default {
   },
   methods: {
     ...mapActions(["fetchRestaurants", "updatedRestaurant", "updatedReviews"]),
+    getRandomColor() {
+      let color = `hsl(${Math.random() * 360},100%,75%)`;
+      return `background-color : ${color}`;
+    },
     async deleteComment(id) {
       if (this.isAdmin) {
         // Logic to delete  comment by admin
@@ -165,7 +204,7 @@ export default {
       );
       if (duplicateUser) {
         duplicateUser.message = this.message;
-        duplicateUser.rating = this.rating;
+        duplicateUser.rating = Number(this.rating);
         this.message = "";
         this.review = "";
         this.$swal({
@@ -179,7 +218,7 @@ export default {
             id: this.userId,
             name: this.username,
             message: this.message,
-            rating: this.rating,
+            rating: Number(this.rating),
           },
         ];
         this.message = "";
@@ -265,59 +304,71 @@ export default {
   font-size: larger;
   font-weight: 800;
 }
-.container {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  overflow-y: scroll;
-}
 
 ul {
   width: 100%;
-  height: min-content;
+  height: auto;
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  list-style: none;
+  flex-wrap: wrap;
 }
 ul li {
-  border: 2px solid rgb(162, 162, 162);
-  margin: 20px;
-  list-style: none;
+  box-shadow: 0rem 1rem 5rem hsla(0, 0%, 71%, 0.2);
+  border: none;
+  margin: 10px;
   width: 30%;
-  padding: 10px;
-  gap: 20px;
-  height: 10rem;
+  padding: 0px 20px;
+  border-radius: 20px;
+  height: 250px;
   display: flex;
   flex-direction: column;
-  position: relative;
+}
+ul li .button {
+  display: flex;
+  justify-content: space-evenly;
+  height: 20%;
 }
 ul li .delete-icon {
-  position: absolute;
+  border: none;
+  width: 40%;
+  align-self: center;
+  border-radius: 50px;
+  padding: 5px 10px;
+  background-color: rgb(74, 74, 74);
+  color: white;
   cursor: pointer;
-  scale: 0.8;
-  right: 0;
-  bottom: 0;
+}
+ul li .delete-icon:hover {
+  background-color: rgb(217, 217, 217);
+  color: #2f2e2e;
 }
 ul li .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  width: 100%;
+  height: 25%;
 }
 ul li .info .profile {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+
+  font-weight: 900;
 }
 ul li img {
   width: 30px;
 }
 ul li h4 {
-  display: flex;
+  width: 100%;
+  height: 55%;
+  padding: 10px 10px;
+  word-wrap: break-word;
+  font-size: 20px;
+  line-height: 30px;
+  hyphens: auto;
+  font-weight: 550;
 }
 .comments {
   display: flex;

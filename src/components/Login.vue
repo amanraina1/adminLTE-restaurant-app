@@ -97,7 +97,7 @@
 
               <div class="col-12 text-center mb-4">
                 <button
-                  type="button"
+                  type="submit"
                   v-on:click="login()"
                   class="btn btn-primary btn-block"
                 >

@@ -51,7 +51,6 @@
     {
       "email": "user@example.com",
       "favourites": [
-        "3939",
         "411518",
         "145541",
         "27891"
@@ -76,6 +75,13 @@
       "password": "123456",
       "favourites": [],
       "isAdmin": false
+    },
+    {
+      "id": "46c6",
+      "name": "Ravichandran Ashwin Pandit Mishra",
+      "email": "ravi@example.com",
+      "password": "ravi",
+      "isAdmin": false
     }
   ],
   "restaurants": [
@@ -90,13 +96,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
+        },
+        {
+          "id": "43f3",
+          "name": "User",
+          "message": "Very good food and ambience and nice restauarant and good food is always good mood and other things",
+          "rating": 5
         }
       ],
       "id": "3939"
@@ -112,19 +124,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "id": "411518"
@@ -138,19 +150,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "32nd Avenue",
@@ -166,19 +178,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Old DLF Colony",
@@ -194,19 +206,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Huda Shopping Center",
@@ -222,19 +234,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Jharsa",
@@ -250,19 +262,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Huda Market",
@@ -278,19 +290,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Huda Complex",
@@ -308,19 +320,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "id": "21742"
@@ -334,19 +346,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Sector 14",
@@ -363,19 +375,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "avgRating": 5,
@@ -390,19 +402,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "DLF Colony",
@@ -418,19 +430,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Kadipur Road",
@@ -446,19 +458,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Sector 50",
@@ -474,19 +486,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "sohna road",
@@ -502,19 +514,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Mata Road",
@@ -533,19 +545,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ]
     },
@@ -558,19 +570,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Huda Market",
@@ -586,19 +598,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Jmd Galleria",
@@ -613,19 +625,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "contact": 96222,
@@ -642,19 +654,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Higher Complex",
@@ -670,19 +682,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Huda Complex",
@@ -698,19 +710,19 @@
           "id": "4876",
           "name": "Peter",
           "message": "Nice restaurant",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "4"
+          "rating": 4
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "address": "Jmd Galleria",
@@ -728,25 +740,25 @@
           "id": "4ca6",
           "name": "Naruto",
           "message": "Good Ambiemce",
-          "rating": "3"
+          "rating": 3
         },
         {
           "id": "e12c",
           "name": "Aman Raina",
           "message": "Careful and good staff",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "2338",
           "name": "testing",
           "message": "Highly recommended",
-          "rating": "5"
+          "rating": 5
         },
         {
           "id": "43f3",
           "name": "User",
           "message": "Exceptional food and ambience",
-          "rating": "4"
+          "rating": 4
         }
       ],
       "id": "c97d"

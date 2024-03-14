@@ -51,9 +51,8 @@ export default {
     },
 
     async removeFavourite(id) {
-      let response = this.getUser;
-      this.favourites = response.favourites.filter((item) => item !== id);
-      const data = this.$store.getters.getUserById(this.userId);
+      let data = this.getUser;
+      this.favourites = data.favourites.filter((item) => item !== id);
 
       await this.removeFavourites({
         id: this.userId,
