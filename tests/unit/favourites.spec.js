@@ -1,5 +1,5 @@
 import { mount, shallowMount } from "@vue/test-utils";
-import Home from "@/components/Home.vue";
+import Favourites from "@/components/Favourites.vue";
 import Navbar from "@/dashboard/Navbar.vue";
 import Footer from "@/dashboard/Footer.vue";
 import Sidebar from "@/dashboard/Sidebar.vue";
@@ -20,7 +20,7 @@ describe("home", () => {
   };
 
   const updateWrapper = () => {
-    wrapper = mount(Home, {
+    wrapper = mount(Favourites, {
       global: {
         mocks: {
           $router: mockRouter,

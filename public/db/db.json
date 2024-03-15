@@ -51,10 +51,9 @@
     {
       "email": "user@example.com",
       "favourites": [
-        "411518",
-        "145541",
         "27891",
-        "3939"
+        "3939",
+        "20138"
       ],
       "id": "43f3",
       "isAdmin": false,
