@@ -62,6 +62,7 @@
 </template>
 <script>
 import { mapActions } from "vuex";
+
 export default {
   name: "Card",
   data() {
@@ -127,14 +128,13 @@ export default {
     },
     removeFavourite(id) {
       this.$emit("removeFav", id);
-      // console.log(id);
     },
   },
 
   async mounted() {
-    const user = localStorage.getItem("user-info");
-    this.isAdmin = JSON.parse(user).isAdmin;
-    this.userId = JSON.parse(user).id;
+    // const user = localStorage.getItem("user-info");
+    // this.isAdmin = JSON.parse(user).isAdmin;
+    // this.userId = JSON.parse(user).id;
     await this.fetchUsers();
   },
 };

@@ -4,7 +4,6 @@ import axios from "axios";
 jest.mock("axios");
 
 //  {{ Restaurants API test }}
-
 // --> Add API restaurant test
 describe("addRestarant", () => {
   it("should add a restaurant and add it to the state", async () => {
@@ -101,6 +100,7 @@ describe("addRestarant", () => {
     ]);
   });
 });
+
 // --> Get API restaurant test
 describe("fetchRestaurants", () => {
   it("fetches restaurant from the API and commits them to the store", async () => {
@@ -181,6 +181,7 @@ describe("fetchRestaurants", () => {
     ]);
   });
 });
+
 // --> Update API restaurant test
 describe("updateRestarant", () => {
   it("should edit a restaurant and add it to the state", async () => {
@@ -324,6 +325,7 @@ describe("updateRestarant", () => {
     ]);
   });
 });
+
 // --> Delete API restaurant test
 describe("deleteRestaurant", () => {
   it("should delete a restaurant and remove it from the state", async () => {
@@ -440,7 +442,6 @@ describe("deleteRestaurant", () => {
 });
 
 //  {{ Users API test }}
-
 // --> Add API users test
 describe("addFavRestaurant", () => {
   it("should add a user and add it to the state", async () => {

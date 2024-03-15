@@ -18,6 +18,7 @@
     "axios": "^1.6.7",
     "font-awesome": "^4.7.0",
     "json-server": "^1.0.0-alpha.23",
+    "moxios": "^0.4.0",
     "sweetalert2": "^11.10.5",
     "vee-validate": "^4.12.5",
     "vue": "^3.4.15",
@@ -36,7 +37,9 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.5",
-    "vite": "^5.0.11"
+    "vite": "^5.0.11",
+    "vue-router-mock": "^1.1.0",
+    "vuex-mock-store": "^0.1.0"
   },
   "type": "module"
 }

@@ -5,6 +5,8 @@ export default {
   transformIgnorePatterns: [
     "node_modules/(?!axios)&(?!vee-validate/dist/rules)",
   ],
+  // setupFilesAfterEnv: ["<rootDir>/tests/router-mock-setup.js"],
+
   transform: {
     "vee-validate/dist/rules": "babel-jest",
   },
