@@ -52,6 +52,7 @@ const store = createStore({
         cloudinaryImageId: payload.cloudinaryImageId,
         avgRating: payload.avgRating,
         reviews: payload.reviews,
+        id: payload.id,
       });
       commit("updatedRestaurants", payload);
     },
@@ -67,7 +68,7 @@ const store = createStore({
 
     async addRestaurants({ commit }, title) {
       const result = await axios.post(`http://localhost:3000/restaurants`, {
-        name: title.restaurantName,
+        name: title.name,
         contact: title.contact,
         address: title.address,
         cloudinaryImageId: title.cloudinaryImageId,
@@ -75,7 +76,7 @@ const store = createStore({
         reviews: title.reviews,
       });
 
-      commit("addRestaurants", result.data);
+      commit("addRestaurant", result.data);
     },
 
     // {{ Users APIs }}
@@ -86,9 +87,9 @@ const store = createStore({
 
     async addFavRestaurant({ commit }, data) {
       const response = await axios.patch(
-        `http://localhost:3000/users/${data[1]}`,
+        `http://localhost:3000/users/${data.id}`,
         {
-          favourites: data[0],
+          favourites: data.favourites,
         }
       );
       commit("addFavourite", response.data);
@@ -137,7 +138,7 @@ const store = createStore({
       restaurant.reviews = payload.reviews;
     },
 
-    addRestaurants: (state, title) => state.restaurants.unshift(title),
+    addRestaurant: (state, title) => state.restaurants.unshift(title),
 
     // {{ Users APIs }}
     setUsers: (state, users) => (state.users = users),

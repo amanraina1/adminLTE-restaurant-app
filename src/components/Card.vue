@@ -117,7 +117,8 @@ export default {
       // To add a new fav restaurant
 
       this.favourites = [...this.favourites, id];
-      this.addFavRestaurant([this.favourites, this.userId]);
+      const payload = { id: this.userId, favourites: this.favourites };
+      this.addFavRestaurant(payload);
 
       this.$swal({
         icon: "success",

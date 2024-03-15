@@ -121,11 +121,11 @@ export default {
           "/src/assets/placeholder-restaurant.png";
       }
       this.addRestaurants({
-        restaurantName: this.restaurant.name,
-        contact: this.restaurant.contact,
-        address: this.restaurant.address,
-        cloudinaryImageId: this.restaurant.cloudinaryImageId,
-        avgRating: this.restaurant.avgRating,
+        name: this.restaurant?.name,
+        contact: this.restaurant?.contact,
+        address: this.restaurant?.address,
+        cloudinaryImageId: this.restaurant?.cloudinaryImageId,
+        avgRating: this.restaurant?.avgRating,
         reviews: [],
       });
       this.$swal({
