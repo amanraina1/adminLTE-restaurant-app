@@ -1,11 +1,6 @@
 import { mount } from "@vue/test-utils";
 import moxios from "moxios";
 import { createStore } from "vuex";
-// import {
-//   VueRouterMock,
-//   createRouterMock,
-//   injectRouterMock,
-// } from "vue-router-mock";
 import { createRouterMock, injectRouterMock } from "vue-router-mock";
 import Card from "@/components/Card.vue";
 import store from "@/store";

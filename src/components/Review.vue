@@ -1,9 +1,4 @@
 <template>
-  <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit soluta autem
-  cupiditate distinctio eaque quam vel aperiam dolorem itaque. Eius, temporibus
-  et! Dolores iste, rem, minima autem quae voluptates optio quam repellat,
-  perferendis neque natus alias ex. Ab dolores unde explicabo tempore eveniet
-  consectetur maxime ea nobis, temporibus quo assumenda minima? -->
   <!-- Rendering Modal on delete option -->
   <div class="root">
     <Teleport to="body">

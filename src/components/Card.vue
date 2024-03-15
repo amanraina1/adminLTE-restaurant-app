@@ -133,9 +133,9 @@ export default {
   },
 
   async mounted() {
-    // const user = localStorage.getItem("user-info");
-    // this.isAdmin = JSON.parse(user).isAdmin;
-    // this.userId = JSON.parse(user).id;
+    const user = localStorage.getItem("user-info");
+    this.isAdmin = JSON.parse(user).isAdmin;
+    this.userId = JSON.parse(user).id;
     await this.fetchUsers();
   },
 };
