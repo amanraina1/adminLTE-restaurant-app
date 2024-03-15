@@ -49,6 +49,7 @@
             <button title="See Reviews">See Reviews</button>
           </router-link>
           <button
+            data-test-id="modal"
             v-on:click="showModal()"
             style="background-color: red"
             v-if="isAdmin"
