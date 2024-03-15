@@ -29,16 +29,14 @@
           </span>
           <span>
             <img
+              class="star"
               v-for="item in item.rating"
               src="../assets/filledStar.png"
-              alt=""
-              srcset=""
             />
             <img
+              class="star"
               v-for="item in 5 - item.rating"
               src="../assets/emptyStar.png"
-              alt=""
-              srcset=""
             />
           </span>
         </div>
@@ -353,14 +351,17 @@ ul li .info .profile {
   font-weight: 900;
 }
 ul li img {
-  width: 30px;
+  width: 40px;
+}
+ul li .star {
+  width: 20px;
 }
 ul li h4 {
   width: 100%;
   height: 55%;
   padding: 10px 10px;
   word-wrap: break-word;
-  font-size: 20px;
+  font-size: 1em;
   line-height: 30px;
   hyphens: auto;
   font-weight: 550;
