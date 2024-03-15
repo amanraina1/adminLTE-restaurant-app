@@ -16,6 +16,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "admin-lte": "^3.2.0",
     "axios": "^1.6.7",
+    "flush-promises": "^1.0.2",
     "font-awesome": "^4.7.0",
     "json-server": "^1.0.0-alpha.23",
     "moxios": "^0.4.0",

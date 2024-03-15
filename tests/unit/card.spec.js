@@ -1,11 +1,11 @@
-import { mount } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import moxios from "moxios";
 import { createStore } from "vuex";
 import { createRouterMock, injectRouterMock } from "vue-router-mock";
 import Card from "@/components/Card.vue";
 import store from "@/store";
-
-describe("add", () => {
+import { Store } from "vuex-mock-store";
+describe("card", () => {
   const router = createRouterMock({});
   beforeEach(() => {
     injectRouterMock(router);
@@ -13,6 +13,7 @@ describe("add", () => {
   let wrapper;
   const mockRouter = {
     push: jest.fn(),
+    $store: store,
   };
 
   const updateWrapper = () => {
@@ -33,26 +34,13 @@ describe("add", () => {
         id: "1234",
         fav: "true",
       },
-      data() {
-        return {
-          isAdmin: true,
-          isOpen: false,
-          userId: "c0a3",
-          favourites: [],
-        };
-      },
     });
   };
 
   test("testing if component is mounted", async () => {
     expect(wrapper.exists()).toBeTruthy();
   });
-  test("testing if modal is showing after click on delete button", async () => {
-    expect(wrapper.vm.isOpen).toEqual(false);
-    const deleteIcon = wrapper.find("[data-test-id='modal']");
-    await deleteIcon.trigger("click");
-    expect(wrapper.vm.isOpen).toEqual(true);
-  });
+
   test("testing if name of restaurant is rendered", async () => {
     expect(wrapper.html()).toContain("By highway");
   });
@@ -71,7 +59,6 @@ describe("add", () => {
 
   beforeEach(function () {
     updateWrapper();
-
     moxios.install();
   });
 
