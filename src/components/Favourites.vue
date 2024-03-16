@@ -15,6 +15,8 @@
   </ul>
   <div class="elseMsg" v-else>
     <h1>Favourite List is Empty 🗑️</h1>
+    <br />
+    <h1><router-link to="/">Go to Home</router-link></h1>
   </div>
 </template>
 
@@ -111,6 +113,8 @@ ul {
 .elseMsg {
   height: 85vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-size: 2rem;
 }

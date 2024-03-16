@@ -38,13 +38,12 @@ describe("add", () => {
     expect(wrapper.findAll("input").at(3).text()).toMatch("");
     expect(wrapper.findAll("input").at(4).text()).toMatch("");
     expect(wrapper.findAll("button").length).toEqual(1);
+    expect(wrapper.findAll("button").at(0).text()).toMatch("Update Restaurant");
   });
 
   test("sets value in input field", async () => {
     const input = wrapper.find("input");
-
     await input.setValue("Update");
-
     expect(input.element.value).toBe("Update");
   });
 

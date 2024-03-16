@@ -4,6 +4,7 @@ import moxios from "moxios";
 import { createStore } from "vuex";
 import { createRouterMock, injectRouterMock } from "vue-router-mock";
 import store from "@/store";
+import { flushPromises } from "@vue/test-utils";
 
 describe("add", () => {
   const router = createRouterMock({});
@@ -23,6 +24,12 @@ describe("add", () => {
         },
         plugins: [store],
       },
+      data() {
+        return {
+          email: "",
+          password: "",
+        };
+      },
       router,
     });
   };
@@ -39,10 +46,18 @@ describe("add", () => {
 
   test("sets value in input field", async () => {
     const input = wrapper.find("input");
-
     await input.setValue("Login");
-
     expect(input.element.value).toBe("Login");
+  });
+  test("validate value in input fields", async () => {
+    const emailInput = wrapper.findAll("input").at(0);
+    const button = wrapper.find("button");
+    await emailInput.setValue("");
+    await button.trigger("click");
+    await flushPromises();
+    console.log(wrapper.html());
+    // console.log(button);
+    // console.log(emailInput);
   });
 
   beforeEach(function () {

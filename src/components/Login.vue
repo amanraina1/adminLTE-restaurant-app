@@ -46,7 +46,11 @@
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
-          <Form :validation-schema="schema" v-slot="{ errors }">
+          <Form
+            validate-on-mount
+            :validation-schema="schema"
+            v-slot="{ errors }"
+          >
             <div class="mb-4">
               <div class="input-group">
                 <Field
@@ -64,7 +68,9 @@
                   </div>
                 </div>
               </div>
-              <span class="p-error text-danger mb-3"> {{ errors.email }} </span>
+              <span class="p-error text-danger mb-3">
+                {{ errors.email }}
+              </span>
             </div>
             <div class="mb-4">
               <div class="input-group">

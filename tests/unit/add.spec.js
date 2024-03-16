@@ -19,10 +19,12 @@ describe("add", () => {
   });
   test("testong input fields", async () => {
     expect(wrapper.findAll("input").length).toEqual(4);
+    expect(wrapper.findAll("button").length).toEqual(1);
     expect(wrapper.findAll("input").at(0).text()).toMatch("");
     expect(wrapper.findAll("input").at(1).text()).toMatch("");
-    expect(wrapper.findAll("input").at(2).text()).toMatch("");
     expect(wrapper.findAll("input").at(3).text()).toMatch("");
+    expect(wrapper.findAll("input").at(2).text()).toMatch("");
+    expect(wrapper.findAll("button").at(0).text()).toMatch("Add Restaurant");
   });
 
   test("sets value in input field", async () => {

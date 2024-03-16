@@ -5,7 +5,7 @@ jest.mock("axios");
 
 //  {{ Restaurants API test }}
 // --> Add API restaurant test
-describe("addRestarant", () => {
+describe("Add Restaurant", () => {
   it("should add a restaurant and add it to the state", async () => {
     const newRestaurant = {
       name: "Subway",
@@ -47,12 +47,13 @@ describe("addRestarant", () => {
         ],
       },
     ];
-    // mock the axios call
+    // mocking the axios call
     axios.post.mockResolvedValue({ data: newRestaurant });
 
     // call the action
     await store.dispatch("addRestaurants", newRestaurant);
 
+    // assertion if the url is correct or not
     expect(axios.post).toHaveBeenCalledWith(
       "http://localhost:3000/restaurants",
       newRestaurant
@@ -102,7 +103,7 @@ describe("addRestarant", () => {
 });
 
 // --> Get API restaurant test
-describe("fetchRestaurants", () => {
+describe("Fetch all restaurants", () => {
   it("fetches restaurant from the API and commits them to the store", async () => {
     // mock the axios.get method
     axios.get = jest.fn(() =>
@@ -183,7 +184,7 @@ describe("fetchRestaurants", () => {
 });
 
 // --> Update API restaurant test
-describe("updateRestarant", () => {
+describe("Update Restarant", () => {
   it("should edit a restaurant and add it to the state", async () => {
     // Arrange
     const newRestaurant = {
@@ -327,7 +328,7 @@ describe("updateRestarant", () => {
 });
 
 // --> Delete API restaurant test
-describe("deleteRestaurant", () => {
+describe("Delete Restaurant", () => {
   it("should delete a restaurant and remove it from the state", async () => {
     // Arrange
     const restaurantId = "411518";
@@ -443,7 +444,7 @@ describe("deleteRestaurant", () => {
 
 //  {{ Users API test }}
 // --> Add API users test
-describe("addFavRestaurant", () => {
+describe("Add Favourite Restaurant", () => {
   it("should add a user and add it to the state", async () => {
     // Arrange
 
@@ -496,7 +497,7 @@ describe("addFavRestaurant", () => {
 });
 
 // --> Get API restaurant test
-describe("fetchUsers", () => {
+describe("Fetch all users", () => {
   it("fetches restaurant from the API and commits them to the store", async () => {
     // mock the axios.get method
     axios.get = jest.fn(() =>
@@ -551,7 +552,7 @@ describe("fetchUsers", () => {
 });
 
 // --> Delete API restaurant test
-describe("deleteFavRestaurant", () => {
+describe("Delete Favourite Restaurant", () => {
   it("should delete a restaurant from fav list and remove it from the state", async () => {
     // Arrange
     const newRestaurant = {
