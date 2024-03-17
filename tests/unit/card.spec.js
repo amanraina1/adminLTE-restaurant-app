@@ -5,7 +5,8 @@ import { createRouterMock, injectRouterMock } from "vue-router-mock";
 import Card from "@/components/Card.vue";
 import store from "@/store";
 import { Store } from "vuex-mock-store";
-describe("card", () => {
+
+describe("Card", () => {
   const router = createRouterMock({});
   beforeEach(() => {
     injectRouterMock(router);
@@ -37,23 +38,23 @@ describe("card", () => {
     });
   };
 
-  test("testing if component is mounted", async () => {
+  it("testing if component is mounted", async () => {
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  test("testing if name of restaurant is rendered", async () => {
+  it("testing if name of restaurant is rendered", async () => {
     expect(wrapper.html()).toContain("By highway");
   });
-  test("testing if address of restaurant is rendered", async () => {
+  it("testing if address of restaurant is rendered", async () => {
     expect(wrapper.html()).toContain("National Highway Road");
   });
-  test("testing if avgRating of restaurant is rendered", async () => {
+  it("testing if avgRating of restaurant is rendered", async () => {
     expect(wrapper.html()).toContain("4.3");
   });
-  test("testing if contact of restaurant is rendered", async () => {
+  it("testing if contact of restaurant is rendered", async () => {
     expect(wrapper.html()).toContain("1243545");
   });
-  test("testing if image of restaurant is rendered", async () => {
+  it("testing if image of restaurant is rendered", async () => {
     expect(wrapper.html()).toContain("https://unknown.com");
   });
 

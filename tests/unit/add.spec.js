@@ -1,8 +1,7 @@
 import { mount } from "@vue/test-utils";
-// import { createStore } from "vuex";
 import Add from "@/components/Add.vue";
 
-describe("add", () => {
+describe("Add", () => {
   const mockRouter = {
     push: jest.fn(),
   };
@@ -14,10 +13,10 @@ describe("add", () => {
     },
   });
 
-  test("testing if component is mounted", async () => {
+  it("testing if component is mounted", async () => {
     expect(wrapper.exists()).toBeTruthy();
   });
-  test("testong input fields", async () => {
+  it("testong input fields", async () => {
     expect(wrapper.findAll("input").length).toEqual(4);
     expect(wrapper.findAll("button").length).toEqual(1);
     expect(wrapper.findAll("input").at(0).text()).toMatch("");
@@ -27,7 +26,7 @@ describe("add", () => {
     expect(wrapper.findAll("button").at(0).text()).toMatch("Add Restaurant");
   });
 
-  test("sets value in input field", async () => {
+  it("sets value in input field", async () => {
     const input = wrapper.find("input");
 
     await input.setValue("By the Highway");

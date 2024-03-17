@@ -5,7 +5,7 @@ import { createStore } from "vuex";
 import { createRouterMock, injectRouterMock } from "vue-router-mock";
 import store from "@/store";
 
-describe("add", () => {
+describe("Signup", () => {
   const router = createRouterMock({});
   beforeEach(() => {
     injectRouterMock(router);
@@ -27,10 +27,10 @@ describe("add", () => {
     });
   };
 
-  test("testing if component is mounted", async () => {
+  it("test if component is mounted", async () => {
     expect(wrapper.exists()).toBeTruthy();
   });
-  test("testong input fields", async () => {
+  it("testong input fields", async () => {
     expect(wrapper.findAll("input").length).toEqual(3);
     expect(wrapper.findAll("input").at(0).text()).toMatch("");
     expect(wrapper.findAll("input").at(1).text()).toMatch("");
@@ -38,11 +38,9 @@ describe("add", () => {
     expect(wrapper.findAll("button").length).toEqual(1);
   });
 
-  test("sets value in input field", async () => {
+  it("sets value in input field", async () => {
     const input = wrapper.find("input");
-
     await input.setValue("Sign up");
-
     expect(input.element.value).toBe("Sign up");
   });
 

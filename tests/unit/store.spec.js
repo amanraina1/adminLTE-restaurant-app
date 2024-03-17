@@ -3,9 +3,7 @@ import axios from "axios";
 
 jest.mock("axios");
 
-//  {{ Restaurants API test }}
-// --> Add API restaurant test
-describe("Add Restaurant", () => {
+describe("store", () => {
   it("should add a restaurant and add it to the state", async () => {
     const newRestaurant = {
       name: "Subway",
@@ -100,10 +98,6 @@ describe("Add Restaurant", () => {
       },
     ]);
   });
-});
-
-// --> Get API restaurant test
-describe("Fetch all restaurants", () => {
   it("fetches restaurant from the API and commits them to the store", async () => {
     // mock the axios.get method
     axios.get = jest.fn(() =>
@@ -181,10 +175,6 @@ describe("Fetch all restaurants", () => {
       },
     ]);
   });
-});
-
-// --> Update API restaurant test
-describe("Update Restarant", () => {
   it("should edit a restaurant and add it to the state", async () => {
     // Arrange
     const newRestaurant = {
@@ -325,10 +315,6 @@ describe("Update Restarant", () => {
       newRestaurant,
     ]);
   });
-});
-
-// --> Delete API restaurant test
-describe("Delete Restaurant", () => {
   it("should delete a restaurant and remove it from the state", async () => {
     // Arrange
     const restaurantId = "411518";
@@ -440,11 +426,6 @@ describe("Delete Restaurant", () => {
       },
     ]);
   });
-});
-
-//  {{ Users API test }}
-// --> Add API users test
-describe("Add Favourite Restaurant", () => {
   it("should add a user and add it to the state", async () => {
     // Arrange
 
@@ -494,10 +475,6 @@ describe("Add Favourite Restaurant", () => {
       },
     ]);
   });
-});
-
-// --> Get API restaurant test
-describe("Fetch all users", () => {
   it("fetches restaurant from the API and commits them to the store", async () => {
     // mock the axios.get method
     axios.get = jest.fn(() =>
@@ -549,10 +526,6 @@ describe("Fetch all users", () => {
       },
     ]);
   });
-});
-
-// --> Delete API restaurant test
-describe("Delete Favourite Restaurant", () => {
   it("should delete a restaurant from fav list and remove it from the state", async () => {
     // Arrange
     const newRestaurant = {

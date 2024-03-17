@@ -27,10 +27,10 @@ describe("add", () => {
     });
   };
 
-  test("testing if component is mounted", async () => {
+  it("testing if component is mounted", async () => {
     expect(wrapper.exists()).toBeTruthy();
   });
-  test("testong input fields", async () => {
+  it("testong input fields", async () => {
     expect(wrapper.findAll("input").length).toEqual(5);
     expect(wrapper.findAll("input").at(0).text()).toMatch("");
     expect(wrapper.findAll("input").at(1).text()).toMatch("");
@@ -41,7 +41,7 @@ describe("add", () => {
     expect(wrapper.findAll("button").at(0).text()).toMatch("Update Restaurant");
   });
 
-  test("sets value in input field", async () => {
+  it("sets value in input field", async () => {
     const input = wrapper.find("input");
     await input.setValue("Update");
     expect(input.element.value).toBe("Update");

@@ -1,40 +1,4 @@
 <template>
-  <!-- <form
-    @submit="login"
-    class="d-flex flex-column align-items-center justify-content-center py-5"
-  > -->
-  <!-- <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input
-        type="email"
-        v-model="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        placeholder="Enter email"
-      />
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="exampleInputPassword1"
-        placeholder="Password"
-        v-model="password"
-      />
-    </div> -->
-  <!-- 
-    <button type="submit" v-on:click="login" class="btn btn-primary m-3">
-      Login
-    </button>
-    <router-link to="/signup">
-      <button type="submit" class="btn btn-secondary">
-        Go To Sign Up Page
-      </button>
-    </router-link>
-  </form> -->
-
   <!-- AdminLTE Theme Start -->
 
   <body class="login-page container-fluid" style="min-height: 496.797px">
@@ -48,6 +12,7 @@
           <p class="login-box-msg">Sign in to start your session</p>
           <Form
             validate-on-mount
+            @submit="login()"
             :validation-schema="schema"
             v-slot="{ errors }"
           >
@@ -68,7 +33,7 @@
                   </div>
                 </div>
               </div>
-              <span class="p-error text-danger mb-3">
+              <span v-if="errors.email" class="p-error text-danger mb-3">
                 {{ errors.email }}
               </span>
             </div>
@@ -88,43 +53,19 @@
                   </div>
                 </div>
               </div>
-              <span class="p-error text-danger">
+              <span v-if="errors.password" class="p-error text-danger">
                 {{ errors.password }}
               </span>
             </div>
 
             <div class="row">
-              <!-- <div class="col-8">
-                <div class="icheck-primary">
-                  <input type="checkbox" id="remember" />
-                  <label for="remember"> Remember Me </label>
-                </div>
-              </div> -->
-
               <div class="col-12 text-center mb-4">
-                <button
-                  type="submit"
-                  v-on:click="login()"
-                  class="btn btn-primary btn-block"
-                >
+                <button type="submit" class="btn btn-primary btn-block">
                   Sign In
                 </button>
               </div>
             </div>
           </Form>
-          <!-- <div class="social-auth-links text-center mb-3">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-primary">
-              <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-            </a>
-            <a href="#" class="btn btn-block btn-danger">
-              <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-            </a>
-          </div> -->
-
-          <!-- <p class="mb-1">
-            <a href="#">I forgot my password</a>
-          </p> -->
           <p class="mb-0">
             <router-link to="/signup">Register a new membership</router-link>
           </p>
